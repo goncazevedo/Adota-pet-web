@@ -42,7 +42,6 @@
 /*1 - Nav*/
 
 header {
-    width: 100vw;
     background-color: var(--rosa-escuro);
     height: 75px;
 }
