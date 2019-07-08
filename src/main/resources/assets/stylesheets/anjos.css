@@ -347,3 +347,35 @@ header nav ul li:nth-child(2)::after{
     margin: 0 auto;
     width: 100vw;
 }
+
+/**/
+
+.nossa-equipe{
+    background-image: url(../img/blackCat.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 80vh;
+    color: var(--branco-secundario);
+    text-align: center;
+    background-position: center;
+}
+
+.nossa-equipe h2{
+    font-family: "Titan";
+    font-size: 1.5em;
+
+}
+
+.nossa-equipe .descricao{
+    font-family: "Confortaa";
+    font-size: 0.8em;
+    margin: 20px 10%;
+}
+
+.nossa-equipe div{
+    display: inline-flex;
+}
+.nossa-equipe div p{
+    border: 3px solid var(--branco-primario);
+}
