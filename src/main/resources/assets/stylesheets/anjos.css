@@ -1,0 +1,154 @@
+/*MENU
+0 - GERAL
+1 - Nav bar
+2 - Section 1
+3 - Section 2
+*/
+
+/*0 - Geral*/
+
+:root {
+    --rosa-primario: #FFB6C0;
+    --rosa-secundario: rgba(255,182,192,0.8);
+    --rosa-escuro: #DB8187;
+
+    --branco-primario: #FFF;
+    --branco-secundario: #FFFEE8;
+
+    --cinza-primario: #333;
+    --cinza-secundario: #CECECE;
+}
+
+@font-face {
+    font-family: "Titan";
+    src: url("../fonts/TitanOne-Regular.ttf");
+    
+}
+
+@font-face {
+    font-family: "Confortaa";
+    src: url("../fonts/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+    font-family: "ChelseaMarket";
+    src: url("../fonts/ChelseaMarket-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Carter";
+    src: url("../fonts/CarterOne.ttf");
+}
+/*1 - Nav*/
+
+header {
+    width: 100%;
+    background-color: var(--rosa-escuro);
+}
+
+nav .logo{
+
+}
+
+nav {
+    text-align: right;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 15px 5px;
+    font-size: 1.400em;
+    
+}
+
+nav a {
+    color: var(--branco-secundario);
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 8px 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--rosa-secundario);
+    transition: 0.3s
+    
+}
+
+nav ul li:nth-child(1)::after,
+nav ul li:nth-child(2)::after,
+nav ul li:nth-child(3)::after{
+    display: inline-block;
+    content: "";
+    height: 35px;
+    width: 2px;
+    background-color: var(--rosa-primario);
+    position: relative;
+    top: .5em;
+    left: 7px;
+
+}
+/*2 - Section 1*/
+
+.home {
+    background-image: url("../img/animal.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: var(--branco-secundario);
+    font-family: "Titan";
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 4.5em;
+    letter-spacing: 4px;
+    font-family: "ChelseaMarket"
+
+}
+
+.home .icons{
+    margin: 50px 0px; 
+}
+
+.home .icons_content {
+    width: 75px;
+    height: 75px;
+    }
+
+.home .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#central {
+    margin: 0 20%;
+}
+.home .more {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.home .more p {
+    font-size: 2em;
+    font-family: "Confortaa";
+    color: var(--branco-primario);
+    margin-bottom: 5%
+        
+}
+
+.home .arrow {
+    height: 28px;
+    width: 28px;
+    margin: 0 auto;
+    border-left: solid 8px var(--branco-primario);
+    border-bottom: solid 8px var(--branco-primario);
+    transform: translate(-50%, -50%);
+    transform: rotate(-45deg);
+    border-radius: 10%;
+}
+
