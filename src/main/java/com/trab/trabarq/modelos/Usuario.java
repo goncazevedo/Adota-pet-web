@@ -1,6 +1,7 @@
 package com.trab.trabarq.modelos;
 
 import java.util.Date;
+import java.util.List;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -45,9 +46,12 @@ public class Usuario {
     private Date dataNascimento;
 
     @Column(name = "us_senha", length = 15, nullable = false)
-    @NotNull(message = "O email é obrigatório")
-    @Length(max = 15, min = 6, message = "O senha deve conter entre 5 e 15 caracteres")
+    @NotNull(message = "A senha é obrigatório")
+    @Length(max = 15, min = 5, message = "A senha deve conter entre 5 e 15 caracteres")
     private String senha;
+
+    @Column(name = "us_tipo", nullable = false)
+    private boolean tipo;
 
     @Column(name = "us_linkFacebook", length = 60, nullable = true)
     @Length(max = 60, message = "O link do facebook deve conter até 60 caracteres")
@@ -69,4 +73,125 @@ public class Usuario {
     @Column(name = "us_descricao", length = 200, nullable = true)
     @Length(max = 200,  message = "A descrição deve conter até 200 caracteres")
     private String descricao;
+
+    @OneToMany(mappedBy = "p_pet")
+    private List<Pet> pets;
+
+    @ManyToOne
+    @JoinColumn(name = "uf_id")
+    private Uf uf;
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Date getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public boolean isTipo() {
+        return tipo;
+    }
+
+    public void setTipo(boolean tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getLinkFacebook() {
+        return linkFacebook;
+    }
+
+    public void setLinkFacebook(String linkFacebook) {
+        this.linkFacebook = linkFacebook;
+    }
+
+    public String getLinkInstagram() {
+        return linkInstagram;
+    }
+
+    public void setLinkInstagram(String linkInstagram) {
+        this.linkInstagram = linkInstagram;
+    }
+
+    public String getNumTel() {
+        return numTel;
+    }
+
+    public void setNumTel(String numTel) {
+        this.numTel = numTel;
+    }
+
+    public String getLinkDoacao() {
+        return linkDoacao;
+    }
+
+    public void setLinkDoacao(String linkDoacao) {
+        this.linkDoacao = linkDoacao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
+
 }
