@@ -8,7 +8,7 @@
 /*0 - Geral*/
 
 :root {
-    --rosa-primario: #FFB6C0;
+    --rosa-primario: #F9AFBD;
     --rosa-secundario: rgba(255,182,192,0.8);
     --rosa-escuro: #DB8187;
 
@@ -66,44 +66,43 @@ footer{
 }
 
 header .logo{
-    margin-left: 8vw;
+    margin-left: 5vw;
     margin-top: 10px;
     width: 150px;
     float: left;
 }
 
-nav {
-    text-align: right;
-}
 
-nav ul{
+header nav ul{
     float: right;
     margin-right: 0px;
 }
 
-nav ul li {
+header nav ul li {
     display: inline-block;
     margin: 13px 5px 0px 5px;
     font-size: 1em;
     
 }
 
-nav a {
+header nav a {
     color: var(--branco-secundario);
+    font-family: "ChelseaMarket";
     text-decoration: none;
     border-radius: 20px;
     padding: 8px 20px;
     transition: 0.3s;
 }
 
-nav a:hover {
-    background-color: var(--rosa-secundario);
-    transition: 0.3s
+header nav a:hover {
+    background-color: var(--branco-secundario);
+    transition: 0.3s;
+    color: var(--rosa-escuro);
     
 }
 
-nav ul li:nth-child(1)::after,
-nav ul li:nth-child(2)::after{
+header nav ul li:nth-child(1)::after,
+header nav ul li:nth-child(2)::after{
     display: inline-block;
     content: "";
     height: 30px;
@@ -120,6 +119,7 @@ nav ul li:nth-child(2)::after{
     background-image: url("../img/animal.png");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: 100vh;
     color: var(--branco-secundario);
     font-family: "Titan";
@@ -131,6 +131,12 @@ nav ul li:nth-child(2)::after{
     letter-spacing: 4px;
     font-family: "ChelseaMarket"
 
+}
+
+.home h2{
+    font-family: "Titan";
+    font-size: 30px;
+    margin-top: 25px;
 }
 
 .home .icons{
@@ -154,14 +160,14 @@ nav ul li:nth-child(2)::after{
 }
 .home .more {
     position: absolute;
-    top: 80%;
+    top: 92%;
     left: 50%;
     transform: translate(-50%,-50%);
 }
 
 .home .more p {
-    font-size: 2em;
-    font-family: "Confortaa";
+    font-size: 18px;
+    font-family: "Carter";
     color: var(--branco-primario);
     margin-bottom: 5%
         
@@ -184,4 +190,66 @@ nav ul li:nth-child(2)::after{
     color :var(--rosa-secundario);
     
 
+}
+
+.icon-scroll,
+.icon-scroll:before{
+  position: absolute;
+  left: 50%
+}
+.icon-scroll{
+  width: 30px;
+  height: 53px;
+  margin-left: -20px;
+  top: 90%;
+  margin-top: -35px;
+  box-shadow: inset 0 0 0 1px #fff;
+  border-radius: 25px;
+}
+
+.icon-scroll:before{
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  margin-left: -4px;
+  top: 8px;
+  border-radius: 4px;
+  animation-duration: 1.7s;
+  animation-iteration-count: infinite;
+  animation-name: scroll;
+}
+
+.icon-scroll-gone{
+    display: none;
+}
+@keyframes scroll{
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(46px);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+    header .logo{
+        float: none;
+    }
+    header{
+        height: 125px;
+    }
+    header nav{
+        text-align: unset;
+    }
+    header nav ul{
+        float: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    header nav ul li{
+        font-size: 0.75em;
+    }
 }
