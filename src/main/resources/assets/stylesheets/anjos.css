@@ -42,7 +42,7 @@
 /*1 - Nav*/
 
 header {
-    width: 100%;
+    width: 100vw;
     background-color: var(--rosa-escuro);
     height: 75px;
 }
@@ -116,7 +116,7 @@ header nav ul li:nth-child(2)::after{
 /*2 - Section 1*/
 
 .home {
-    background-image: url("../img/animal.png");
+    background-image: url(../img/animal.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -124,6 +124,10 @@ header nav ul li:nth-child(2)::after{
     color: var(--branco-secundario);
     font-family: "Titan";
     text-align: center;
+}
+
+.container-table{
+    display: table;
 }
 
 .home h1 {
@@ -135,7 +139,7 @@ header nav ul li:nth-child(2)::after{
 
 .home h2{
     font-family: "Titan";
-    font-size: 30px;
+    font-size: 26px;
     margin-top: 25px;
 }
 
@@ -149,10 +153,14 @@ header nav ul li:nth-child(2)::after{
     }
 
 .home .box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0 auto;
+    height: calc(100vh - 75px);
+    width: 100vw;
+}
+.after-header{
+    display: contents;
 }
 
 #central {
@@ -184,13 +192,7 @@ header nav ul li:nth-child(2)::after{
     border-radius: 10%;
 }
 
-.sucesso .titulo{
-    width: 410px;
-    height: 69px;
-    color :var(--rosa-secundario);
-    
 
-}
 
 .icon-scroll,
 .icon-scroll:before{
@@ -252,4 +254,21 @@ header nav ul li:nth-child(2)::after{
     header nav ul li{
         font-size: 0.75em;
     }
+}
+
+
+/* outra section*/
+
+.info h2{
+    font-family: "Titan";
+    text-align: center;
+    color: var(--rosa-primario);
+    font-size: 26px;
+    margin: 30px 0px;
+}
+
+.info p{
+    text-align: center;
+    max-width: 80vw;
+    margin: 15px auto;
 }
