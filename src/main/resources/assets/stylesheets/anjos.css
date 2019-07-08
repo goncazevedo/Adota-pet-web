@@ -76,6 +76,11 @@ nav {
     text-align: right;
 }
 
+nav ul{
+    float: right;
+    margin-right: 0px;
+}
+
 nav ul li {
     display: inline-block;
     margin: 13px 5px 0px 5px;
@@ -98,8 +103,7 @@ nav a:hover {
 }
 
 nav ul li:nth-child(1)::after,
-nav ul li:nth-child(2)::after,
-nav ul li:nth-child(3)::after{
+nav ul li:nth-child(2)::after{
     display: inline-block;
     content: "";
     height: 30px;
@@ -174,3 +178,10 @@ nav ul li:nth-child(3)::after{
     border-radius: 10%;
 }
 
+.sucesso .titulo{
+    width: 410px;
+    height: 69px;
+    color :var(--rosa-secundario);
+    
+
+}
