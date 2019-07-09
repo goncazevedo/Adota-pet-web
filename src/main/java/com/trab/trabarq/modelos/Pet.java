@@ -1,9 +1,6 @@
 package com.trab.trabarq.modelos;
 
-import java.util.Date;
-
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
