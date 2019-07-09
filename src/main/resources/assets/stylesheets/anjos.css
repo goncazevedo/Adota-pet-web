@@ -355,7 +355,7 @@ header nav ul li:nth-child(2)::after{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 80vh;
+    height: 100vh;
     color: var(--branco-secundario);
     text-align: center;
     background-position: center;
@@ -364,6 +364,7 @@ header nav ul li:nth-child(2)::after{
 .nossa-equipe h2{
     font-family: "Titan";
     font-size: 1.5em;
+    padding-top: 40px;
 
 }
 
@@ -373,9 +374,38 @@ header nav ul li:nth-child(2)::after{
     margin: 20px 10%;
 }
 
-.nossa-equipe div{
-    display: inline-flex;
+.nossa-equipe .equipe{
+    display: flex;
+    /* flex-wrap: inherit; */
+    justify-content: center;
+    flex-wrap: wrap;
 }
-.nossa-equipe div p{
-    border: 3px solid var(--branco-primario);
+.nossa-equipe .equipe p{
+    
+    color: #333;
+    padding: 20px;
+    
+}
+
+.nossa-equipe .membro{
+    background: #f3f3f3;
+    margin: 10px;
+    position: relative;
+    width: 23vw;
+    height: 175px;
+    margin-top: 70px;
+}
+
+.circulo{
+    background: red;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: -32px;
+
 }
