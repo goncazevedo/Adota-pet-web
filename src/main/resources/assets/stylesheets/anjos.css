@@ -359,6 +359,7 @@ header nav ul li:nth-child(2)::after{
     color: var(--branco-secundario);
     text-align: center;
     background-position: center;
+    padding-bottom: 10px;
 }
 
 .nossa-equipe h2{
@@ -379,25 +380,35 @@ header nav ul li:nth-child(2)::after{
     /* flex-wrap: inherit; */
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 40px;
 }
-.nossa-equipe .equipe p{
+.nossa-equipe .equipe .citacao{
     
     color: #333;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
+    font-family: "Confortaa";
+    font-size: 13px;
     
 }
 
+.nossa-equipe .membro .membro-nome{
+    color: var(--rosa-escuro);
+    padding: 0px 10px 10px 10px;
+    font-family: "Confortaa";
+    font-size: 15px;
+}
 .nossa-equipe .membro{
     background: #f3f3f3;
     margin: 10px;
     position: relative;
-    width: 23vw;
-    height: 175px;
-    margin-top: 70px;
+    width: 145px;
+    height: 210px;
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
 .circulo{
-    background: red;
+    background: var(--rosa-primario);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -408,4 +419,9 @@ header nav ul li:nth-child(2)::after{
     right: 0;
     top: -32px;
 
+}
+
+.membro img{
+    width: 50px;
+    margin: 10px auto;
 }
