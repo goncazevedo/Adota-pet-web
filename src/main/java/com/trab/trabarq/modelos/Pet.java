@@ -1,6 +1,5 @@
 package com.trab.trabarq.modelos;
 
-
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
