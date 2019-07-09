@@ -18,7 +18,7 @@ public class Usuario {
 
     @Id //identifica a chave principal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "us_id")
+    @Column(name = "us_id", unique = true)
     private long id;
 
     @Column(name = "us_nome", length = 50, nullable = false)

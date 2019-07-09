@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Adota Pet - edição de usuários</title>
+    </head>
+    <body>
+        <div>
+            <h3>Cadastro de Usuário</h3>
+            <form action="/usuario/editar" method="POST" th:object="${usuario}">
+                <input type="hidden"  th:field="*{id}">
+
+                <div>
+                    <div>
+                        <label>Nome</label>
+                        <input type="text"  th:field="*{nome}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>genero</label>
+                        <input type="radio" th:field="*{genero}" value="male"> Masculino
+                        <input type="radio" th:field="*{genero}" value="female"> Feminino
+                        <input type="radio" th:field="*{genero}" value="other"> Outro 
+                    </div>
+                </div> 
+                <div>
+                    <div>
+                        <label>E-mail</label>
+                        <input type="email" th:field="*{email}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>CPF</label>
+                        <input type="text" th:field="*{cpf}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Data de nascimento</label>
+                        <input type="date" th:field="*{dataNascimento}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Senha</label>
+                        <input type="password" th:field="*{senha}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>ONG?</label>
+                        <input type="checkbox" th:field="*{tipo}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Facebook</label>
+                        <input type="url" th:field="*{linkFacebook}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Instagram</label>
+                        <input type="url" th:field="*{linkInstagram}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Telefone</label>
+                        <input type="tel" th:field="*{numTel}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Doação</label>
+                        <input type="url" th:field="*{linkDoacao}">
+                    </div>
+                </div> 
+                <div>
+                    <div>
+                        <label>Descrição</label>
+                        <input type="text" th:field="*{descricao}">
+                    </div>
+                </div>
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
+    </body>
+</html>
