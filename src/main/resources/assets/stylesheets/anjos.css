@@ -770,3 +770,17 @@ input[type='file'] {
     display: block;
     cursor: pointer;
 }
+
+.profile .button{
+    text-decoration: none;
+    background-color: var(--rosa-primario);
+    border-radius: 15px;
+    padding: 5px;
+    color: var(--branco-primario);
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: block;
+    width: 50px;
+    cursor: pointer;
+}
