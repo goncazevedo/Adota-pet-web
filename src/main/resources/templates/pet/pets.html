@@ -8,7 +8,7 @@
         <div>
             <h3>Listagem</h3>
             <a href="/pet/cadastro">Inserir novo pet</a>
-            <div th:each="pet: ${usuarios}">
+            <div th:each="pet: ${pets}">
                 <div>
                     <div th:text="${pet.nome}"></div>
                     <div>

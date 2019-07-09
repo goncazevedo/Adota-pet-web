@@ -10,6 +10,8 @@
                 <div th:object="${usuario}">
                     <div th:text="${usuario.nome}"></div>
                     <div th:text="${'Data de nascimento: ' + #dates.format(usuario.dataNascimento, 'dd/MM/yyyy')}"></div>
+                    <div th:text="${usuario.descricao}"></div>
+                    <div th:text="${usuario.uf.descricao}"></div>
                 </div>
         </div>
     </body>

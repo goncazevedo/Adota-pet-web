@@ -1,30 +1,59 @@
 package com.trab.trabarq.modelos;
 
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
- * Estados
+ * Uf
  */
-@Entity
-@Table(name = "Uf")
-public class Uf {
+public enum Uf {
+    AC("AC", "Acre"), 
+    AL("AL", "Alagoas"),
+    AM("AM", "Amazonas"),
+    BA("BA", "Bahia"),
+    CE("CE", "Ceará"),
+    DF("DF", "Distrito Federal"),
+    ES("ES", "Espírito Santo"),
+    GO("GO", "Goiás"),
+    MA("MA", "Maranhão"),
+    MT("MT", "Mato Grosso"),
+    MS("MS", "Mato Grosso do Sul"),
+    MG("MG", "Minas Gerais"),
+    PA("PA", "Pará"),
+    PB("PB", "Paraíba"),
+    PR("PR", "Paraná"),
+    PE("PE", "Pernambuco"),
+    PI("PI", "Piauí"),
+    RJ("RJ", "Rio de Janeiro"),
+    RN("RN", "Rio Grande do Norte"),
+    RS("RS", "Rio Grande do Sul"),
+    RO("RO", "Rondônia"),
+    RR("RR", "Roraima"),
+    SC("SC", "Santa Catarina"),
+    SP("SP", "São Paulo"),
+    SE("SE", "Sergipe"),
+    TO("TO", "Tocantins");
 
-    @Id //identifica a chave principal
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "uf_id")
-    private long id;
+    private String sigla;
+    private String descricao;
 
-    @Column(name = "uf_uf", length = 60, nullable = false)
-    private String uf;
+    Uf(String sigla, String descricao) {
+        this.sigla = sigla;
+        this.descricao = descricao;
+    }
 
-    @OneToMany(mappedBy = "uf")
-    private List<Usuario> usuarios;
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+
 }

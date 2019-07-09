@@ -2,6 +2,7 @@ package com.trab.trabarq.controllers;
 
 import javax.validation.Valid;
 
+import com.trab.trabarq.modelos.Uf;
 import com.trab.trabarq.modelos.Usuario;
 import com.trab.trabarq.repositorio.RepositorioUsuario;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,5 +86,10 @@ public class UsuarioController {
             repositorioUsuario.save(usuario);
         }
         return mv;
-}
+    }
+
+    @ModelAttribute("ufs")
+    public Uf[] getUf(){
+        return Uf.values();
+    }
 }

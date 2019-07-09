@@ -36,7 +36,7 @@ public class Usuario {
     @Length(max = 20, min = 3)
     private String genero;
 
-    @Column(name = "us_cpf", length = 11, nullable = false)
+    @Column(name = "us_cpf", length = 11, nullable = false, unique = true)
     @NotNull(message = "O cpf é obrigatório")
     @Length(max = 11, min = 11, message = "O cpf deve conter 11 caracteres")
     private String cpf;
@@ -77,8 +77,8 @@ public class Usuario {
     @OneToMany(mappedBy = "dono")
     private List<Pet> pets;
 
-    @ManyToOne
-    @JoinColumn(name = "uf_id")
+    @Column(name = "us_uf", length = 2, nullable = false)
+    @Enumerated(EnumType.STRING)
     private Uf uf;
 
 
@@ -192,6 +192,14 @@ public class Usuario {
 
     public void setPets(List<Pet> pets) {
         this.pets = pets;
+    }
+
+    public Uf getUf() {
+        return uf;
+    }
+
+    public void setUf(Uf uf) {
+        this.uf = uf;
     }
 
 }

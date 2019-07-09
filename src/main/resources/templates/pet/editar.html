@@ -8,6 +8,7 @@
         <div>
             <h3>edição de pet</h3>
             <form action="/pet/editar" method="POST" th:object="${pet}">
+                <input type="hidden"  th:field="*{id}">
                 <div>
                     <div>
                         <label>Nome</label>

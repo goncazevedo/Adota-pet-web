@@ -44,6 +44,14 @@
                 </div>
                 <div>
                     <div>
+                        <label>Estado</label>
+                        <select th:field = "*{uf}">
+                            <option th:each = "uf : ${ufs}" th:value = "${uf.sigla}" th:text = "${uf.descricao}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <div>
                         <label>Senha</label>
                         <input type="password" th:field="*{senha}">
                     </div>
