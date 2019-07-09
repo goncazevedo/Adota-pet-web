@@ -16,7 +16,7 @@
                             <label th:errors="*{nome}" class="validation-message"></label>
                         </div>
                         <label>Título:</label>
-                        <input type="text" class="form-control" th:field="${tarefa.nome}">
+                        <input type="text" class="form-control" th:field="*{nome}">
                     </div>
                 </div>
                
