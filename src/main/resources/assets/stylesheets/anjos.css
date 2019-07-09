@@ -12,11 +12,14 @@
     --rosa-secundario: rgba(255,182,192,0.8);
     --rosa-escuro: #DB8187;
 
-    --branco-primario: #FFF;
+    --branco-primario: #fafafa;
     --branco-secundario: #FFFEE8;
 
     --cinza-primario: #333;
     --cinza-secundario: #CECECE;
+    --cinza-escuro: #575757;
+
+    --azul: #74A4DD;
 }
 
 @font-face {
@@ -45,7 +48,7 @@ html, body {
     height: 100%;
     margin: 0;
   }
-  
+
 header {
     background-color: var(--rosa-escuro);
     height: 75px;
@@ -79,6 +82,7 @@ header .logo{
     margin-top: 10px;
     width: 150px;
     float: left;
+    display: block;
 }
 
 
@@ -248,12 +252,14 @@ header nav ul li:nth-child(2)::after{
 @media only screen and (max-width: 700px) {
     header .logo{
         float: none;
+        /* text-align: center; */
+        margin: 0 auto;
     }
     header{
         height: 125px;
     }
     header nav{
-        text-align: unset;
+        text-align: center;
     }
     header nav ul{
         float: none;
@@ -276,6 +282,11 @@ header nav ul li:nth-child(2)::after{
         width: 95%;
         padding-left: 10px;
     }
+
+    .login{
+        height: calc(100vh - 125px - 90px) !important;
+    }
+
 }
 
 @media only screen and (max-width: 400px) {
@@ -534,4 +545,77 @@ header nav ul li:nth-child(2)::after{
     margin-top: 15px;
     margin-right: 10vw;
     color: var(--branco-primario);
+}
+
+/* Login */
+
+.login{
+    height: calc(100vh - 75px - 90px);
+}
+
+.login h2{
+    font-family: "Titan";
+    color: var(--rosa-primario);
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.login h3{
+    font-family: "Carter";
+    text-transform: uppercase;
+    font-size: 1em;
+    margin-top: 15px;
+    color: var(--rosa-primario);
+}
+
+.login form{
+    margin: 0 auto;
+    display: table;
+}
+
+.confirma{
+    margin: 15px auto;
+    display: block;
+    text-align: center;
+    padding: 6px 15px;
+    border-radius: 15px;
+    background: var(--rosa-primario);
+    color: var(--branco-primario);
+    border: none;
+    font-family: "Titan";
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+input[type="text"], textarea, input[type="password"]{
+    background-color: var(--rosa-escuro);
+    border-radius: 5px;
+    border: 1px solid var(--cinza-escuro);
+    padding: 3px;
+    color: var(--branco-primario);
+    padding-left: 5px;
+}
+
+::placeholder {
+    color: var(--branco-primario);
+    opacity: 0.6; /* Firefox */
+    
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: var(--branco-primario);
+   opacity: 0.6;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: var(--branco-primario);
+   opacity: 0.6;
+  }
+
+form a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: var(--azul);
 }
