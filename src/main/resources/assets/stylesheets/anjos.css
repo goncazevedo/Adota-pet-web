@@ -41,6 +41,11 @@
 }
 /*1 - Nav*/
 
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
 header {
     background-color: var(--rosa-escuro);
     height: 75px;
