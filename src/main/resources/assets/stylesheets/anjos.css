@@ -359,7 +359,7 @@ header nav ul li:nth-child(2)::after{
     color: var(--branco-secundario);
     text-align: center;
     background-position: center;
-    padding-bottom: 10px;
+    padding-bottom: 40px;
 }
 
 .nossa-equipe h2{
@@ -380,7 +380,6 @@ header nav ul li:nth-child(2)::after{
     /* flex-wrap: inherit; */
     justify-content: center;
     flex-wrap: wrap;
-    padding-bottom: 40px;
 }
 .nossa-equipe .equipe .citacao{
     
