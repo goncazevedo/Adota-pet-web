@@ -8,19 +8,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-//modelo que explicita oq é uma tarefa
-//sera uma tabela no banco de dados
-
 @Entity
-@Table(name = "us_usuario")
-public class Usuario {
+@Table(name = "p_pet")
+public class Pet {
 
     @Id //identifica a chave principal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "us_id")
+    @Column(name = "p_id")
     private long id;
 
-    @Column(name = "us_nome", length = 50, nullable = false)
+    @Column(name = "p_nome", length = 50, nullable = false)
     @NotNull(message = "O nome é obrigatório")
     @Length(max = 50, min = 3, message = "O nome deve conter entre 3 e 50 caracteres")
     private String nome;
