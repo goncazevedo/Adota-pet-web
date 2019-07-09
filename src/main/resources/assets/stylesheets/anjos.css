@@ -553,7 +553,7 @@ header nav ul li:nth-child(2)::after{
     height: calc(100vh - 75px - 90px);
 }
 
-.login h2, .cadastro h2{
+.login h2, .cadastro h2, .profile h2{
     font-family: "Titan";
     color: var(--rosa-primario);
     font-size: 2em;
@@ -689,4 +689,83 @@ input[type='file'] {
     .cadastro form .esq, .cadastro form .dir{
         display: unset;
     }
+}
+
+.profile .circulo{
+    position: unset;
+    width: 120px;
+    height: 120px;
+}
+
+.profile .rede-social{
+    margin: 0 auto;
+    display: table;
+}
+
+.profile .rede-social img{
+    width: 40px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.profile .info-profile{
+    display: table;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 70vw;
+}
+
+.profile .info-profile h3{
+    font-family: "Carter";
+    color: var(--rosa-escuro);
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.profile .info-profile h3 span{
+    color: var(--rosa-primario);
+
+}
+
+.profile .info-profile p{
+    font-family: "Confortaa";
+    margin-bottom: 10px;
+    font-size: 14px
+}
+
+.profile .info-profile h3 a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--azul);
+}
+
+.animais-doacao{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 70vw;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.animais-doacao img{
+    width: 180px;
+    
+}
+
+.animal-doacao{
+    margin: 10px;
+}
+
+.animal-doacao a{
+    text-decoration: none;
+    font-family: "Titan";
+    color: var(--azul);
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    cursor: pointer;
 }
