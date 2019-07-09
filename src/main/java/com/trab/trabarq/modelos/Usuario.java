@@ -74,7 +74,7 @@ public class Usuario {
     @Length(max = 200,  message = "A descrição deve conter até 200 caracteres")
     private String descricao;
 
-    @OneToMany(mappedBy = "p_pet")
+    @OneToMany(mappedBy = "dono")
     private List<Pet> pets;
 
     @ManyToOne

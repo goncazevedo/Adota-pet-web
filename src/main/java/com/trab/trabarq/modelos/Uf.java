@@ -25,6 +25,6 @@ public class Uf {
     @Column(name = "uf_uf", length = 60, nullable = false)
     private String uf;
 
-    @OneToMany(mappedBy = "us_usuario")
+    @OneToMany(mappedBy = "uf")
     private List<Usuario> usuarios;
 }
