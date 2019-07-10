@@ -67,7 +67,7 @@ public class Usuario {
     @Length(max = 200,  message = "A descrição deve conter até 200 caracteres")
     private String descricao;
 
-    @OneToMany(mappedBy = "dono")
+    @OneToMany(mappedBy = "dono", fetch = FetchType.LAZY)
     private List<Pet> pets;
 
     @Column(name = "us_uf", length = 2, nullable = true)
@@ -194,5 +194,7 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    
 
 }

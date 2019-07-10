@@ -40,7 +40,7 @@ public class Pet {
     @Length(max = 200,  message = "A descrição deve conter até 200 caracteres")
     private String vacinas;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "us_id")
     private Usuario dono;
 

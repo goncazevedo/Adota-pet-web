@@ -1,9 +1,12 @@
 package com.trab.trabarq.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import com.trab.trabarq.modelos.Pet;
+import com.trab.trabarq.modelos.Usuario;
 import com.trab.trabarq.repositorio.RepositorioPet;
+import com.trab.trabarq.servico.ServicoUsuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,11 +27,15 @@ public class PetController {
     @Autowired
     private RepositorioPet repositoriopet;
 
+    @Autowired
+    private ServicoUsuario servicoUsuario;
+
     @GetMapping("/pets")
-    public ModelAndView list() {
+    public ModelAndView list(HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pet/pets");
-        mv.addObject("pets", repositoriopet.findAll());
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        mv.addObject("pets", repositoriopet.carregarPetsPorUsuario(emailUsuario));
         return mv;
     }
 
@@ -42,14 +49,17 @@ public class PetController {
 
 
     @PostMapping("/cadastro")
-    public ModelAndView inserir(@Valid Pet pet, BindingResult result) {
+    public ModelAndView inserir(@Valid Pet pet, BindingResult result, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         if(result.hasErrors()){
             mv.setViewName("pet/cadastro");
             mv.addObject(pet);
         }else{
-            mv.setViewName("redirect:/pet/pets");
+            String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+            Usuario usuarioLogado = servicoUsuario.encontrarPorEmail(emailUsuario);
+            pet.setDono(usuarioLogado);
             repositoriopet.save(pet);
+            mv.setViewName("redirect:/pet/pets");
         }
         return mv;
     }
