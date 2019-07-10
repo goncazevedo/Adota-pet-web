@@ -86,4 +86,9 @@ public class PetController {
         return mv;
     }
 
+    @GetMapping("/excluir/{id}")
+    public void excluir(@PathVariable("id") Long id) {
+        repositoriopet.deleteById(id);
+    }
+
 }

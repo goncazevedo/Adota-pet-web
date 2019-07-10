@@ -45,10 +45,10 @@ public class Usuario {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
 
-    @Column(name = "us_senha", length = 15, nullable = false)
+    @Column(name = "us_password", length = 15, nullable = false)
     @NotNull(message = "A senha é obrigatório")
     @Length(max = 15, min = 5, message = "A senha deve conter entre 5 e 15 caracteres")
-    private String senha;
+    private String password;
 
     @Column(name = "us_tipo", nullable = false)
     private boolean tipo;
@@ -130,14 +130,6 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public boolean isTipo() {
         return tipo;
     }
@@ -200,6 +192,14 @@ public class Usuario {
 
     public void setUf(Uf uf) {
         this.uf = uf;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

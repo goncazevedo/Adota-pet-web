@@ -7,7 +7,7 @@
     <body>
         <div>
             <h3>Cadastro de Usuário</h3>
-            <form action="/usuario/cadastro" method="POST" th:object="${usuario}">
+            <form action="/registration" method="POST" th:object="${usuario}">
                 <div>
                     <div>
                         <label>Nome</label>
@@ -51,7 +51,7 @@
                 <div>
                     <div>
                         <label>Senha</label>
-                        <input type="password" th:field="*{senha}">
+                        <input type="password" th:field="*{password}">
                     </div>
                 </div>
                 <div>

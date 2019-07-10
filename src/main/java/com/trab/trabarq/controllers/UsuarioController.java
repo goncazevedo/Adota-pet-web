@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import com.trab.trabarq.modelos.Uf;
 import com.trab.trabarq.modelos.Usuario;
 import com.trab.trabarq.repositorio.RepositorioUsuario;
+import com.trab.trabarq.servico.ServicoUsuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,15 @@ public class UsuarioController {
 
     @Autowired
     private RepositorioUsuario repositorioUsuario;
+    
+    
+    @ModelAttribute("ufs")
+    public Uf[] getUf(){
+        return Uf.values();
+    }
+
+    @Autowired
+    private ServicoUsuario ex;
 
     @GetMapping("/usuarios")
     public ModelAndView list() {
@@ -33,7 +43,7 @@ public class UsuarioController {
         mv.addObject("usuarios", repositorioUsuario.findAll());
         return mv;
     }
-
+/* 
     @GetMapping("/cadastro")
     public ModelAndView insere() {
         ModelAndView mv = new ModelAndView();
@@ -54,7 +64,7 @@ public class UsuarioController {
             repositorioUsuario.save(usuario);
         }
         return mv;
-    }
+    } */
 
     @GetMapping("perfil/{id}")
     public ModelAndView show(@PathVariable("id") Long id) {
@@ -88,8 +98,41 @@ public class UsuarioController {
         return mv;
     }
 
-    @ModelAttribute("ufs")
-    public Uf[] getUf(){
-        return Uf.values();
+    @GetMapping("/excluir/{id}")
+    public String excluir(@PathVariable("id") Long id) {
+        repositorioUsuario.deleteById(id);
+        return "redirect:/";
+    }
+
+
+    @GetMapping("/login")
+    public String login() {
+        return "usuario/login";
+    }
+
+    @GetMapping("/registration")
+    public ModelAndView registrar(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("usuario/cadastro");
+        mv.addObject("usuario", new Usuario());
+        return mv;
+    }
+
+    @PostMapping("/registration")
+    public ModelAndView registrar(@Valid Usuario usuario, BindingResult result){
+        ModelAndView mv = new ModelAndView();
+        Usuario usr = ex.encontrarPorEmail(usuario.getEmail());
+        if(usr!=null){
+            result.rejectValue("email", "", "Email já cadastrado");
+        }
+        if(result.hasErrors()){
+            mv.setViewName("usuario/cadastro");
+            mv.addObject("usuarios", usuario);
+        }
+        else{
+            ex.salvar(usuario);
+            mv.setViewName("redirect:usuario/login");
+        }
+        return mv;
     }
 }
