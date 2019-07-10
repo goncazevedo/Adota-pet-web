@@ -125,6 +125,10 @@ public class UsuarioController {
         if(usr!=null){
             result.rejectValue("email", "", "Email já cadastrado");
         }
+        usr = ex.encontrarPorCPF(usuario.getCpf());
+        if(usr!=null){
+            result.rejectValue("cpf", "", "cpf já cadastrado");
+        }
         if(result.hasErrors()){
             mv.setViewName("usuario/cadastro");
             mv.addObject("usuarios", usuario);

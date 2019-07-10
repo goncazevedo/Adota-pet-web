@@ -36,7 +36,7 @@ public class Usuario {
     @Length(max = 20, min = 3)
     private String genero;
 
-    @Column(name = "us_cpf", length = 11, nullable = false, unique = true)
+    @Column(name = "us_cpf", length = 11, nullable = false)
     @NotNull(message = "O cpf é obrigatório")
     @Length(max = 11, min = 11, message = "O cpf deve conter 11 caracteres")
     private String cpf;
