@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 //sera uma tabela no banco de dados
 
 @Entity
-@Table(name = "us_usuario")
+@Table(name = "us_usuarios")
 public class Usuario {
 
     @Id //identifica a chave principal
@@ -21,15 +21,15 @@ public class Usuario {
     @Column(name = "us_id", unique = true)
     private long id;
 
+    @Column(name = "us_email", length = 100, nullable = false)
+    @NotNull(message = "O email é obrigatório")
+    @Length(max = 100, min = 3, message = "O email deve conter entre 3 e 100 caracteres")
+    private String email;
+
     @Column(name = "us_nome", length = 50, nullable = false)
     @NotNull(message = "O nome é obrigatório")
     @Length(max = 50, min = 3, message = "O nome deve conter entre 3 e 50 caracteres")
     private String nome;
-
-    @Column(name = "us_email", length = 60, nullable = false)
-    @NotNull(message = "O email é obrigatório")
-    @Length(max = 60, min = 3, message = "O email deve conter entre 3 e 60 caracteres")
-    private String email;
 
     @Column(name = "us_genero", length = 20, nullable = false)
     @NotNull(message = "O gênero é obrigatório")
@@ -45,9 +45,8 @@ public class Usuario {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
 
-    @Column(name = "us_password", length = 15, nullable = false)
+    @Column(name = "us_password", length = 100, nullable = false)
     @NotNull(message = "A senha é obrigatório")
-    @Length(max = 15, min = 5, message = "A senha deve conter entre 5 e 15 caracteres")
     private String password;
 
     @Column(name = "us_tipo", nullable = false)

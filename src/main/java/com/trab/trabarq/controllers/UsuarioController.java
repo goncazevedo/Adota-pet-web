@@ -104,7 +104,6 @@ public class UsuarioController {
         return "redirect:/";
     }
 
-
     @GetMapping("/login")
     public String login() {
         return "usuario/login";
@@ -135,7 +134,7 @@ public class UsuarioController {
         }
         else{
             ex.salvar(usuario);
-            mv.setViewName("redirect:usuario/login");
+            mv.setViewName("redirect:/usuario/login");
         }
         return mv;
     }

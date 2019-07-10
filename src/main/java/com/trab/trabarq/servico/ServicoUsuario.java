@@ -18,8 +18,8 @@ public class ServicoUsuario {
     @Autowired //Todo autowired é um objeto bean q o spring sabe criar(ou foi ensinado em configuration)
     private BCryptPasswordEncoder passwordEncoder;
 
-    public Usuario encontrarPorCPF(String email){
-        return repositorioUsuario.findByCpf(email);
+    public Usuario encontrarPorCPF(String cpf){
+        return repositorioUsuario.findByCpf(cpf);
     }
 
     public Usuario encontrarPorEmail(String email){
