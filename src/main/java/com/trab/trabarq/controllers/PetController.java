@@ -35,7 +35,7 @@ public class PetController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pet/pets");
         String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
-        mv.addObject("pets", repositoriopet.carregarPetsPorUsuario(emailUsuario));
+        mv.addObject("pets", repositoriopet.findAll());
         return mv;
     }
 
@@ -74,18 +74,24 @@ public class PetController {
     }
 
     @GetMapping("/editar/{id}")
-    public ModelAndView editar(@PathVariable("id") Long id) {
+    public ModelAndView editar(@PathVariable("id") Long id, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pet/editar");
         Pet pet = repositoriopet.getOne(id);
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = servicoUsuario.encontrarPorEmail(emailUsuario);
+        if (pet.getDono() != usuarioLogado ) mv.setViewName("redirect:/usuario/meuperfil");
         mv.addObject("pet",pet);
         return mv;
     }
 
 
     @PostMapping("/editar")
-    public ModelAndView editar(@Valid Pet pet, BindingResult result) {
+    public ModelAndView editar(@Valid Pet pet, BindingResult result, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = servicoUsuario.encontrarPorEmail(emailUsuario);
+        pet.setDono(usuarioLogado);
         if(result.hasErrors()){
             mv.setViewName("pet/editar");
             mv.addObject(pet);
@@ -97,8 +103,11 @@ public class PetController {
     }
 
     @GetMapping("/excluir/{id}")
-    public void excluir(@PathVariable("id") Long id) {
-        repositoriopet.deleteById(id);
+    public String excluir(@PathVariable("id") Long id, HttpServletRequest request) {
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = servicoUsuario.encontrarPorEmail(emailUsuario);
+        if( repositoriopet.getOne(id).getDono() == usuarioLogado) repositoriopet.deleteById(id);
+        return "redirect:/usuario/meuperfil";
     }
 
 }

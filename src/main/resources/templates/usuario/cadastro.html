@@ -57,7 +57,11 @@
                 <div>
                     <div>
                         <label>ONG?</label>
-                        <input type="checkbox" th:field="*{tipo}">
+                        <select th:field = "*{tipo}">
+                            <option value="ong">ONG</option>
+                            <option value="common">comum</option> 
+                        </select>
+
                     </div>
                 </div>
                 <div>

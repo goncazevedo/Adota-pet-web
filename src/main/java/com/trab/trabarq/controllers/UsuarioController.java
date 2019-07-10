@@ -1,5 +1,6 @@
 package com.trab.trabarq.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import com.trab.trabarq.modelos.Uf;
@@ -66,12 +67,28 @@ public class UsuarioController {
         return mv;
     } */
 
-    @GetMapping("perfil/{id}")
-    public ModelAndView show(@PathVariable("id") Long id) {
+
+    @GetMapping("/meuperfil")
+    public ModelAndView show(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("usuario/perfil");
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = ex.encontrarPorEmail(emailUsuario);
+        mv.addObject("usuario", usuarioLogado);
+        mv.addObject("usuarioLogado", usuarioLogado);
+        return mv;
+    }
+
+
+    @GetMapping("/perfil/{id}")
+    public ModelAndView show(@PathVariable("id") Long id, HttpServletRequest request) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("usuario/perfil");
         Usuario usuario = repositorioUsuario.getOne(id);
         mv.addObject("usuario", usuario);
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = ex.encontrarPorEmail(emailUsuario);
+        mv.addObject("usuarioLogado", usuarioLogado);
         return mv;
     }
 
@@ -99,9 +116,11 @@ public class UsuarioController {
     }
 
     @GetMapping("/excluir/{id}")
-    public String excluir(@PathVariable("id") Long id) {
-        repositorioUsuario.deleteById(id);
-        return "redirect:/";
+    public String excluir(@PathVariable("id") Long id, HttpServletRequest request) {
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = ex.encontrarPorEmail(emailUsuario);
+        if( repositorioUsuario.getOne(id) == usuarioLogado) repositorioUsuario.deleteById(id);
+        return "redirect:/logout";
     }
 
     @GetMapping("/login")

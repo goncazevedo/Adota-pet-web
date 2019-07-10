@@ -13,6 +13,6 @@ import org.springframework.data.repository.query.Param;
  */
 public interface RepositorioPet extends JpaRepository<Pet, Long>{
 
-    @Query("SELECT t FROM Pet t WHERE t.usuario.email = :emailUsuario")
+    @Query("SELECT t FROM Pet t WHERE t.dono.email = :emailUsuario")
     List<Pet> carregarPetsPorUsuario(@Param("emailUsuario") String email);
 }

@@ -10,6 +10,7 @@
                 <div th:object="${pet}">
                     <div th:text="${pet.nome}"></div>
                     <div th:text="${pet.idade}"></div>
+                    <div th:text="${pet.dono.email}"></div>
                 </div>
         </div>
     </body>

@@ -21,31 +21,31 @@ public class Usuario {
     @Column(name = "us_id", unique = true)
     private long id;
 
-    @Column(name = "us_email", length = 100, nullable = true)
+    @Column(name = "us_email", length = 100, nullable = false)
     @Length(max = 100, min = 3, message = "O email deve conter entre 3 e 100 caracteres")
     private String email;
 
-    @Column(name = "us_nome", length = 50, nullable = true)
+    @Column(name = "us_nome", length = 50, nullable = false)
     @Length(max = 50, message = "O nome deve conter entre 3 e 50 caracteres")
     private String nome;
 
-    @Column(name = "us_genero", length = 20, nullable = true)
+    @Column(name = "us_genero", length = 20, nullable = false)
     @Length(max = 20)
     private String genero;
 
-    @Column(name = "us_cpf", length = 11, nullable = true)
+    @Column(name = "us_cpf", length = 11, nullable = false)
     @Length(max = 11, message = "O cpf deve conter 11 caracteres")
     private String cpf;
 
-    @Column(name = "us_data_nascimento", nullable = true)
+    @Column(name = "us_data_nascimento", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
 
-    @Column(name = "us_password", length = 100, nullable = true)
+    @Column(name = "us_password", length = 100, nullable = false)
     private String password;
 
-    @Column(name = "us_tipo", nullable = true)
-    private boolean tipo;
+    @Column(name = "us_tipo", nullable = false)
+    private String tipo;
 
     @Column(name = "us_linkFacebook", length = 60, nullable = true)
     @Length(max = 60, message = "O link do facebook deve conter até 60 caracteres")
@@ -67,10 +67,10 @@ public class Usuario {
     @Length(max = 200,  message = "A descrição deve conter até 200 caracteres")
     private String descricao;
 
-    @OneToMany(mappedBy = "dono", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "dono",fetch = FetchType.EAGER)
     private List<Pet> pets;
 
-    @Column(name = "us_uf", length = 2, nullable = true)
+    @Column(name = "us_uf", length = 2, nullable = false)
     @Enumerated(EnumType.STRING)
     private Uf uf;
 
@@ -121,14 +121,6 @@ public class Usuario {
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public boolean isTipo() {
-        return tipo;
-    }
-
-    public void setTipo(boolean tipo) {
-        this.tipo = tipo;
     }
 
     public String getLinkFacebook() {
