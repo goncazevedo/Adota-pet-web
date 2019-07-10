@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Adota Pet - Cadastro de usuários</title>
+    </head>
+    <body>
+        <div>
+            <h3>Cadastro de Usuário</h3>
+            <form action="/pet/cadastro" method="POST" th:object="${pet}">
+                <div>
+                    <div>
+                        <label>Nome</label>
+                        <input type="text"  th:field="*{nome}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Idade</label>
+                        <input type="number"  th:field="*{idade}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>genero</label>
+                        <input type="radio" th:field="*{genero}" value="male"> Masculino
+                        <input type="radio" th:field="*{genero}" value="female"> Feminino
+                    </div>
+                </div> 
+                <div>
+                    <div>
+                        <label>Raça</label>
+                        <input type="text" th:field="*{raca}">
+                    </div>
+                </div>                
+                <div>
+                    <div>
+                        <label>Descrição</label>
+                        <input type="text" th:field="*{descricao}">
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label>Vacinas</label>
+                        <input type="text" th:field="*{vacinas}">
+                    </div>
+                </div>
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </div>
+    </body>
+</html>

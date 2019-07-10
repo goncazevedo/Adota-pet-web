@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>lista de user</title>
+    </head>
+    <body>
+        <div>
+            <h3>Listagem</h3>
+            <a href="/usuario/cadastro">Inserir novo usuario</a>
+            <div th:each="usuario: ${usuarios}">
+                <div>
+                    <div th:text="${usuario.nome}"></div>
+                    <div class="card-body">
+                        <p class="cad-text" th:text="${usuario.descricao}"></p>
+                        <p class="cad-text" th:text="${'Data de nascimento:' + #dates.format(usuario.dataNascimento, 'dd/MM/yyyy')}"></p>
+                    </div>
+                </div>
+                <a th:href = @{/usuario/perfil/{id}(id=${usuario.id})}>mostrar</a>
+            </div>
+        </div>
+    </body>
+</html>
