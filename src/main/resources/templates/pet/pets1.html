@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>lista de user</title>
+    </head>
+    <body>
+        <div>
+            <h3>Listagem</h3>
+            <a href="/pet/cadastro">Inserir novo pet</a>
+            <div th:each="pet: ${pets}">
+                <div>
+                    <div th:text="${pet.nome}"></div>
+                    <div>
+                        <p th:text="${pet.descricao}"></p>
+                        <p th:text="${pet.idade}"></p>
+                    </div>
+                </div>
+                <a th:href = @{/pet/perfil/{id}(id=${pet.id})}>mostrar</a>
+            </div>
+        </div>
+    </body>
+</html>

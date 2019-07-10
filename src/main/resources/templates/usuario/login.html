@@ -1,35 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheets/anjos.css">
+    <title>Adota Pet</title>
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script src="assets/js/scroll.js"></script>
 </head>
 
-    <body>
-        <div>
-            <form action="/usuario/login" method="POST">
-                <div>
-                    <div>
-                        <label>E-mail</label>
-                        <input type="email" name="email">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Senha</label>
-                        <input type="password" name="password">
-                    </div>
-                </div>
-                <div>
-                    <button type="submit">enviar</button>
-                </div>
-                <div>
-                    <p><a href="/usuario/registration">nao possui conta</a></p>
-                </div>
-
-            </form>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="assets/img/Logo.png" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#">Adote aqui</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="#">Cadastro</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="login container-table">
+            <div class="table-cell">
+                <h2>Login</h2>
+                <form>
+                    <h3>E-mail</h3>
+                    <input type="text" name="E-mail" placeholder="seu e-mail">
+                    <h3>Senha</h3>
+                    <input type="password" name="Senha" placeholder="sua senha"><br>
+                    <input type="submit" value="Entrar" class="confirma">
+                    <a href="#">Esqueci minha senha</a>
+                    <a href="#">Cadastre-se!</a>
+                </form>
+                
+            </div>
+        </section>
+        <div class="push"></div>
+    </div>
+    <footer class="footer container-table">
+        <div class="table-cell">
+            <img src="assets/img/instagram.svg" class="logo">
+            <img src="assets/img/facebook.svg" class="logo">
+            <span>Desenvolvido por: </span>
         </div>
-    </body>
+    </footer>
+</body>
 
 </html>
