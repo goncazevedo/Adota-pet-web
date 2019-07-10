@@ -553,7 +553,7 @@ header nav ul li:nth-child(2)::after{
     height: calc(100vh - 75px - 90px);
 }
 
-.login h2, .cadastro h2, .profile h2{
+.login h2, .cadastro h2, .profile h2, .feed h2{
     font-family: "Titan";
     color: var(--rosa-primario);
     font-size: 2em;
@@ -781,6 +781,104 @@ input[type='file'] {
     margin: 0 auto;
     margin-bottom: 20px;
     display: block;
-    width: 50px;
+    width: 70px;
+    letter-spacing: 1px;
     cursor: pointer;
+    font-family: "Titan";
+}
+
+input {
+	outline: none;
+}
+input[type=search] {
+	-webkit-appearance: textfield;
+	-webkit-box-sizing: content-box;
+	font-family: inherit;
+	font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+	display: none; /* remove the search and cancel icon */
+}
+
+/* search input field */
+input[type=search] {
+	background: var(--rosa-primario) url("data:image/svg+xml; charset=UTF-8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 25 25'><path d='M10.182 12.364l2.182-2.182 3.637 3.637L13.818 16zM12 6A6 6 0 1 0 0 6a6 6 0 0 0 12 0zm-6 4c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4z'></path></svg>") no-repeat 6px 6px;
+	border: solid 1px var(--rosa-primario);
+	padding: 9px 10px 9px 32px;
+    width: 75px;
+    color: var(--branco-primario);
+	
+	-webkit-border-radius: 10em;
+	-moz-border-radius: 10em;
+	border-radius: 10em;
+	
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+}
+input[type=search]:focus {
+	width: 170px;
+	background-color: var(--rosa-primario);
+	
+	-webkit-box-shadow: 0 0 5px rgba(249,175,189,.5);
+	-moz-box-shadow: 0 0 5px rgba(249,175,189,.5);
+	box-shadow: 0 0 5px rgba(249,175,189,.5);
+}
+
+/* placeholder */
+input:-moz-placeholder {
+	color: var(--branco-primario);
+}
+input::-webkit-input-placeholder {
+	color: var(--branco-primario);
+}
+
+
+.search-form{
+    display: table;
+    margin: 0 auto;
+}
+
+.animal-descricao .circulo{
+    position: unset;
+    margin-left: 0px;
+    width: 100px;
+    height: 100px;
+}
+
+.animal-descricao{
+    display: inline-flex;
+    padding: 25px 0px;
+}
+
+.animal-nome a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-family: "Titan";
+    color: var(--azul);
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.animal-nome{
+    margin-right: 10px;
+}
+
+.animais-adocao{
+    display: block;
+    margin: 0 auto;
+    width: 80vw;
+}
+
+.animal-descricao .texto p{
+    vertical-align: middle;
+    display: table-cell;
+    height: 100px;
+}
+
+.texto{
+    display: table;
 }
