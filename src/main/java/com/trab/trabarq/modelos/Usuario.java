@@ -21,35 +21,30 @@ public class Usuario {
     @Column(name = "us_id", unique = true)
     private long id;
 
-    @Column(name = "us_email", length = 100, nullable = false)
-    @NotNull(message = "O email é obrigatório")
+    @Column(name = "us_email", length = 100, nullable = true)
     @Length(max = 100, min = 3, message = "O email deve conter entre 3 e 100 caracteres")
     private String email;
 
-    @Column(name = "us_nome", length = 50, nullable = false)
-    @NotNull(message = "O nome é obrigatório")
-    @Length(max = 50, min = 3, message = "O nome deve conter entre 3 e 50 caracteres")
+    @Column(name = "us_nome", length = 50, nullable = true)
+    @Length(max = 50, message = "O nome deve conter entre 3 e 50 caracteres")
     private String nome;
 
-    @Column(name = "us_genero", length = 20, nullable = false)
-    @NotNull(message = "O gênero é obrigatório")
-    @Length(max = 20, min = 3)
+    @Column(name = "us_genero", length = 20, nullable = true)
+    @Length(max = 20)
     private String genero;
 
-    @Column(name = "us_cpf", length = 11, nullable = false)
-    @NotNull(message = "O cpf é obrigatório")
-    @Length(max = 11, min = 11, message = "O cpf deve conter 11 caracteres")
+    @Column(name = "us_cpf", length = 11, nullable = true)
+    @Length(max = 11, message = "O cpf deve conter 11 caracteres")
     private String cpf;
 
-    @Column(name = "us_data_nascimento", nullable = false)
+    @Column(name = "us_data_nascimento", nullable = true)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
 
-    @Column(name = "us_password", length = 100, nullable = false)
-    @NotNull(message = "A senha é obrigatório")
+    @Column(name = "us_password", length = 100, nullable = true)
     private String password;
 
-    @Column(name = "us_tipo", nullable = false)
+    @Column(name = "us_tipo", nullable = true)
     private boolean tipo;
 
     @Column(name = "us_linkFacebook", length = 60, nullable = true)
@@ -60,9 +55,8 @@ public class Usuario {
     @Length(max = 60, message = "O link do instagram deve conter até 60 caracteres")
     private String linkInstagram;
 
-    @Column(name = "us_numTel", length = 11, nullable = false)
-    @NotNull(message = "O número de telefone é obrigatório")
-    @Length(max = 11, min = 11, message = "O cpf deve conter 11 caracteres")
+    @Column(name = "us_numTel", length = 11, nullable = true)
+    @Length(max = 11, message = "O cpf deve conter 11 caracteres")
     private String numTel;
 
     @Column(name = "us_linkDoacao", length = 60, nullable = true)
@@ -76,7 +70,7 @@ public class Usuario {
     @OneToMany(mappedBy = "dono")
     private List<Pet> pets;
 
-    @Column(name = "us_uf", length = 2, nullable = false)
+    @Column(name = "us_uf", length = 2, nullable = true)
     @Enumerated(EnumType.STRING)
     private Uf uf;
 
