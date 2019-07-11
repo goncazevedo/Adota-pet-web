@@ -38,7 +38,7 @@ public class Pet {
     private String descricao;
 
     @Column(name = "p_vacinas", length = 200, nullable = true)
-    @Length(max = 200,  message = "A descrição deve conter até 200 caracteres")
+    @Length(max = 200,  message = "As vacinas devem conter até 200 caracteres")
     private String vacinas;
 
     @ManyToOne(fetch = FetchType.LAZY)
