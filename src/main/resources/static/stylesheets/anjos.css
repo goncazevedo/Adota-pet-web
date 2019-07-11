@@ -1052,3 +1052,18 @@ td a{
     text-decoration: none;
 }
 
+#confirmpassword-error{
+    display: block;
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+#password-error{
+    display: block;
+    width: 180px;
+    margin-bottom: 10px;
+}
+
+.validation-message{
+    width: 180px;
+}

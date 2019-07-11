@@ -8,6 +8,23 @@
     <title>Adota Pet</title>
     <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/scroll.js}"></script>
+    <script th:src="@{/js/jquery-validation.js}"></script>
+    <script>
+        function validatePassword() {
+        var validator = $("#editForm").validate({
+            rules: {
+                password: "required",
+                confirmpassword: {
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                password: "Entre com a senha",
+                confirmpassword: "Senha e confirmação de senha devem ser iguais"
+            }
+        });
+    }
+    </script>
 </head>
 
 <body>
@@ -25,7 +42,7 @@
         <section class="cadastro container-table">
             <div class="table-cell">
                 <h2>Edição</h2>
-                <form action="/usuario/editar" method="POST" th:object="${usuario}">
+                <form action="/usuario/editar" method="POST" th:object="${usuario}" id="editForm">
                     <input type="hidden"  th:field="*{id}">
                     <div class="esq">
                         <h3>E-mail</h3>
@@ -38,10 +55,10 @@
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}">
                             <label th:errors="*{password}" class="validation-message"></label>
                         </div>
-                        <input type="password" name="password" placeholder="sua senha" th:field="*{password}">
+                        <input type="password" name="password" id="password" placeholder="sua senha" th:field="*{password}">
                         
                         <h3>Confirmar Senha</h3>
-                        <input type="password" name="Confirmar Senha" placeholder="sua senha">
+                        <input type="password"  name="confirmpassword" id="confirmpassword" placeholder="sua senha">
                         
                         <h3>CPF</h3>
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cpf')}">

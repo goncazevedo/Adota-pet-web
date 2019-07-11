@@ -8,6 +8,24 @@
     <title>Adota Pet</title>
     <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/scroll.js}"></script>
+    <script th:src="@{/js/jquery-validation.js}"></script>
+    <script>
+        function validatePassword() {
+        var validator = $("#loginForm").validate({
+            rules: {
+                password: "required",
+                confirmpassword: {
+                    equalTo: "#password"
+                }
+            },
+            messages: {
+                password: "Entre com a senha",
+                confirmpassword: "Senha e confirmação de senha devem ser iguais"
+            }
+        });
+    }
+    </script>
+
 </head>
 
 <body>
@@ -24,7 +42,7 @@
         <section class="cadastro container-table">
             <div class="table-cell">
                 <h2>Cadastro</h2>
-                <form action="/usuario/registration" method="POST" th:object="${usuario}" onSubmit = "return checkPassword(this)">
+                <form action="/usuario/registration" method="POST" th:object="${usuario}" onSubmit = "return checkPassword(this)" id="loginForm">
                     <div class="esq">
                         <h3>E-mail</h3>
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
@@ -36,10 +54,10 @@
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}">
                             <label th:errors="*{password}"class="validation-message"></label>
                         </div>
-                        <input type="password" name = "password" placeholder="sua senha" th:field="*{password}">
+                        <input type="password" name = "password" placeholder="sua senha" th:field="*{password}" id="password">
                         
                         <h3>Confirmar Senha</h3>
-                        <input type="password" placeholder="sua senha">
+                        <input type="password" name = "confirmpassword" placeholder="sua senha" id="confirmpassword">
                         
                         <h3>CPF</h3>
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cpf')}">
@@ -95,7 +113,7 @@
                         <h3>Link para doação</h3>
                         <input type="url" th:field="*{linkDoacao}">
                     </div>
-                    <input type="submit" value="Cadastrar" class="confirma">
+                    <input type="submit" value="Cadastrar" class="confirma" onClick="validatePassword();">
                 </form>
 
             </div>
