@@ -3,8 +3,10 @@ package com.trab.trabarq.controllers;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.trab.trabarq.modelos.Pet;
 import com.trab.trabarq.modelos.Uf;
 import com.trab.trabarq.modelos.Usuario;
+import com.trab.trabarq.repositorio.RepositorioPet;
 import com.trab.trabarq.repositorio.RepositorioUsuario;
 import com.trab.trabarq.servico.ServicoUsuario;
 
@@ -28,6 +30,8 @@ public class UsuarioController {
     @Autowired
     private RepositorioUsuario repositorioUsuario;
     
+    @Autowired
+    private RepositorioPet repositorioPet;
     
     @ModelAttribute("ufs")
     public Uf[] getUf(){
@@ -123,7 +127,12 @@ public class UsuarioController {
     public String excluir(@PathVariable("id") Long id, HttpServletRequest request) {
         String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
         Usuario usuarioLogado = ex.encontrarPorEmail(emailUsuario);
-        if( repositorioUsuario.getOne(id) == usuarioLogado) repositorioUsuario.deleteById(id);
+        if( repositorioUsuario.getOne(id) == usuarioLogado){
+            for (Pet p : usuarioLogado.getPets()) {
+                repositorioPet.deleteById(p.getId());
+            }
+            repositorioUsuario.deleteById(id);
+        }    
         return "redirect:/logout";
     }
 
