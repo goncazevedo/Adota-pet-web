@@ -30,7 +30,7 @@ public class Pet {
 
     @Column(name = "p_raca", length = 50, nullable = false)
     @NotNull(message = "A raça é obrigatória")
-    @Length(max = 50, min = 3, message = "O nome deve conter entre 3 e 50 caracteres")
+    @Length(max = 50, min = 3, message = "A raca deve conter entre 3 e 50 caracteres")
     private String raca;
     
     @Column(name = "p_descricao", length = 200, nullable = true)

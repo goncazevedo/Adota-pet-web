@@ -27,7 +27,7 @@ public class Usuario {
     private String email;
 
     @Column(name = "us_nome", length = 50, nullable = false)
-    @NotNull(message = "A senha é obrigatório.")
+    @NotNull(message = "O nome é obrigatório.")
     @Length(max = 50, message = "O nome deve conter entre 3 e 50 caracteres")
     private String nome;
 
@@ -36,7 +36,7 @@ public class Usuario {
     private String genero;
 
     @Column(name = "us_cpf", length = 11, nullable = false)
-    @NotNull(message = "A senha é obrigatório.")
+    @NotNull(message = "O cpf é obrigatório.")
     @Length(max = 11, min = 11, message = "O cpf deve conter 11 caracteres")
     private String cpf;
 
@@ -62,7 +62,7 @@ public class Usuario {
     private String linkInstagram;
 
     @Column(name = "us_numTel", length = 11, nullable = false)
-    @NotNull(message = "O numTel é obrigatória.")
+    @NotNull(message = "O número do telefone é obrigatória.")
     @Length(max = 11, min = 11, message = "O número deve conter 11 caracteres")
     private String numTel;
 
