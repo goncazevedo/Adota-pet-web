@@ -1,35 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymelead.org/">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/stylesheets/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/stylesheets/anjos.css}"/>
+    <title>Adota Pet</title>
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/scroll.js}"></script>
 </head>
 
-    <body>
-        <div>
-            <form action="/usuario/login" method="POST">
-                <div>
-                    <div>
-                        <label>E-mail</label>
-                        <input type="email" name="email">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Senha</label>
-                        <input type="password" name="password">
-                    </div>
-                </div>
-                <div>
-                    <button type="submit">enviar</button>
-                </div>
-                <div>
-                    <p><a href="/usuario/registration">nao possui conta</a></p>
-                </div>
-
-            </form>
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="/"><img th:src="@{/img/Logo.png}" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="/usuario/login">Login</a></li>
+                    <li><a href="/usuario/registration">Cadastro</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="login container-table">
+            <div class="table-cell">
+                <h2>Login</h2>
+                <form action="/usuario/login" method="POST">
+                    <h3>E-mail</h3>
+                    <input type="email" name="email" placeholder="seu e-mail">
+                    <h3>Senha</h3>
+                    <input type="password" name="password" placeholder="sua senha"><br>
+                    <input type="submit" value="Entrar" class="confirma">
+                    <a href="/usuario/registration">Cadastre-se!</a>
+                </form>
+                
+            </div>
+        </section>
+        <div class="push"></div>
+    </div>
+    <footer class="footer container-table">
+        <div class="table-cell">
+            <img th:src="@{/img/instagram.svg}" class="logo">
+            <img th:src="@{/img/facebook.svg}" class="logo">
+            <span>Desenvolvido por: JGAGJ, OS FERAS DO TI</span>
         </div>
-    </body>
+    </footer>
+</body>
 
 </html>

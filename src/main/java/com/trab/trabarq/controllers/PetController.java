@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import com.trab.trabarq.modelos.Pet;
+import com.trab.trabarq.modelos.Uf;
 import com.trab.trabarq.modelos.Usuario;
 import com.trab.trabarq.repositorio.RepositorioPet;
 import com.trab.trabarq.servico.ServicoUsuario;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,12 +32,19 @@ public class PetController {
     @Autowired
     private ServicoUsuario servicoUsuario;
 
+    @ModelAttribute("ufs")
+    public Uf[] getUf(){
+        return Uf.values();
+    }
+
     @GetMapping("/pets")
     public ModelAndView list(HttpServletRequest request) {
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = servicoUsuario.encontrarPorEmail(emailUsuario);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pet/pets");
-        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
         mv.addObject("pets", repositoriopet.findAll());
+        mv.addObject("usuarioLogado", usuarioLogado);
         return mv;
     }
 

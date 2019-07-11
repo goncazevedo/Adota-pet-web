@@ -25,6 +25,7 @@ public class Pet {
     private String genero;
     
     @Column(name = "p_idade", nullable = false)
+    @NotNull(message = "A idade é obrigatória")
     private int idade;
 
     @Column(name = "p_raca", length = 50, nullable = false)
@@ -43,6 +44,10 @@ public class Pet {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "us_id")
     private Usuario dono;
+
+    @Column(name = "p_uf", length = 2, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Uf uf;
 
     public long getId() {
         return id;
@@ -106,5 +111,13 @@ public class Pet {
 
     public void setVacinas(String vacinas) {
         this.vacinas = vacinas;
+    }
+
+    public Uf getUf() {
+        return uf;
+    }
+
+    public void setUf(Uf uf) {
+        this.uf = uf;
     }
 }

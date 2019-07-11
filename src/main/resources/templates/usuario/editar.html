@@ -1,99 +1,114 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymelead.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Adota Pet - edição de usuários</title>
-    </head>
-    <body>
-        <div>
-            <h3>Cadastro de Usuário</h3>
-            <form action="/usuario/editar" method="POST" th:object="${usuario}">
-                <input type="hidden"  th:field="*{id}">
 
-                <div>
-                    <div>
-                        <label>Nome</label>
-                        <input type="text"  th:field="*{nome}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>genero</label>
-                        <input type="radio" th:field="*{genero}" value="male"> Masculino
-                        <input type="radio" th:field="*{genero}" value="female"> Feminino
-                        <input type="radio" th:field="*{genero}" value="other"> Outro 
-                    </div>
-                </div> 
-                <div>
-                    <div>
-                        <label>E-mail</label>
-                        <input type="email" th:field="*{email}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>CPF</label>
-                        <input type="text" th:field="*{cpf}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Data de nascimento</label>
-                        <input type="date" th:field="*{dataNascimento}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Estado</label>
-                        <select th:field = "*{uf}">
-                            <option th:each = "uf : ${ufs}" th:value = "${uf.sigla}" th:text = "${uf.descricao}"></option>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/stylesheets/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/stylesheets/anjos.css}"/>
+    <title>Adota Pet</title>
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/scroll.js}"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="/"><img th:src="@{/img/Logo.png}" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="/pet/pets">Adote aqui</a></li>
+                    <li><a href="/usuario/meuperfil">Meu Perfil</a></li>
+                    <li><a href="logout">sair</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="cadastro container-table">
+            <div class="table-cell">
+                <h2>Edição</h2>
+                <form action="/usuario/editar" method="POST" th:object="${usuario}">
+                    <input type="hidden"  th:field="*{id}">
+                    <div class="esq">
+                        <h3>E-mail</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
+                            <label th:errors="*{email}" class="validation-message"></label>
+                        </div>
+                        <input type="email" name="E-mail" placeholder="seu e-mail"  th:field="*{email}">
+                        
+                        <h3>Senha</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}">
+                            <label th:errors="*{password}" class="validation-message"></label>
+                        </div>
+                        <input type="password" name="Senha" placeholder="sua senha" th:field="*{password}">
+                        
+                        <h3>Confirmar Senha</h3>
+                        <input type="password" name="Confirmar Senha" placeholder="sua senha">
+                        
+                        <h3>CPF</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('cpf')}">
+                            <label th:errors="*{cpf}" class="validation-message"></label>
+                        </div>
+                        <input type="text" name="CPF" placeholder="___-___-___-__" th:field="*{cpf}">
+                        
+                        <h3>Nome</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+                            <label th:errors="*{nome}" class="validation-message"></label>
+                        </div>
+                        <input type="text" name="nome" placeholder="Seu nome" th:field="*{nome}">
+                        
+                        <h3>Gênero</h3>
+                        <select th:field = "*{genero}">
+                            <option value="other">Outro</option>  
+                            <option value="female">Feminino</option>
+                            <option value="male">Masculino</option>
                         </select>
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Senha</label>
-                        <input type="password" th:field="*{password}">
+                    <div class="dir">
+                        <h3>Estado</h3>
+                        <select th:field = "*{uf}">
+                            <option th:each = "u : ${ufs}" th:value = "${u.sigla}" th:text = "${u.descricao}"></option>
+                        </select>
+                        
+                        <h3>Tipo</h3>
+                        <select th:field = "*{tipo}" id="ong-or-not">
+                            <option value="common">Pessoa física</option> 
+                            <option value="ong">ONG</option>
+                        </select>
+                        
+                        <h3>Telefone</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('numTel')}">
+                            <label th:errors="*{numTel}" class="validation-message"></label>
+                        </div>
+                        <input type="text" name="Telefone" placeholder="(99) 99999-9999" th:field="*{numTel}">
+                        
+                        <h3>Link Facebook</h3>
+                        <input type="url" name="Link facebook" placeholder="" th:field="*{linkFacebook}">
+                        
+                        <h3>Link Instagram</h3>
+                        <input type="url" name="Link Instagram" placeholder=""  th:field="*{linkInstagram}">
+                        
+                        <h3>Data de Nascimento</h3>
+                        <input type="date" name="Data de Nascimento" placeholder="" th:field="*{dataNascimento}">
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <label>ONG?</label>
-                        <input type="checkbox" th:field="*{tipo}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Facebook</label>
-                        <input type="url" th:field="*{linkFacebook}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Instagram</label>
-                        <input type="url" th:field="*{linkInstagram}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Telefone</label>
-                        <input type="tel" th:field="*{numTel}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Doação</label>
-                        <input type="url" th:field="*{linkDoacao}">
-                    </div>
-                </div> 
-                <div>
-                    <div>
-                        <label>Descrição</label>
+                    <div id="descricao">
+                        <h3>Descrição</h3>
                         <input type="text" th:field="*{descricao}">
                     </div>
-                </div>
-                <button type="submit">Salvar Alterações</button>
-            </form>
+                    <div id="link-doacao">
+                        <h3>Link para doação</h3>
+                        <input type="url" th:field="*{linkDoacao}">
+                    </div>
+                    <input type="submit" value="Cadastrar" class="confirma">
+                </form>
+
+            </div>
+        </section>
+        <div class="push"></div>
+    </div>
+    <footer class="footer container-table">
+        <div class="table-cell">
+            <img th:src="@{/img/instagram.svg}" class="logo">
+            <img th:src="@{/img/facebook.svg}" class="logo">
+            <span>Desenvolvido por: JGAGJ, OS FERAS DO TI</span>
         </div>
-    </body>
-</html>
+    </footer>
+</body>

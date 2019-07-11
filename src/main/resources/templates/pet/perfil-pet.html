@@ -22,26 +22,25 @@
                 </ul>
             </nav>
         </header>
-        <section class="feed container-table">
-            <div class="table-cell">
-                <h2>Feed</h2>
-                <div class="animais-adocao" th:each="pet: ${pets}">
-                    <div th:if = "${pet.uf == usuarioLogado.uf}" class="animal-descricao">
-                        <div class="animal-nome">
-                            <div class="circulo"></div>
-                            <a th:href = @{/pet/perfil/{id}(id=${pet.id})} th:text="${pet.nome}"></a>
-                        </div>
-                        <div class="texto">
-                            <p th:text="${pet.descricao}"></p>
-                            <!--<p th:text="${pet.idade}"></p>-->
-                        </div>
-                    </div>
-                    <!--<a th:href = @{/pet/perfil/{id}(id=${pet.id})}>mostrar</a>-->
+        <section class="profile container-table">
+            <div class="table-cell" th:object="${pet}">
+                <h2 th:text="${pet.nome}"></h2>
+                <div class="circulo"></div>
+                <div class="info-profile">
+                    <h3>Idade: <span th:text="${pet.idade}"></span> </h3>
+                    <h3>Raça: <span th:text="${pet.raca}">Viralata</span> </h3>
+                    <h3>Sexo: <span th:text="${pet.genero}"></span> </h3>
+                    <h3>Vacinas: </h3> <p th:text="${pet.vacinas}"></p>
+                    <h3>Local:</h3>  <p th:text="${pet.uf}"></p> 
+                    <h3>Descrição: </h3>
+                    <p th:text="${pet.descricao}"></p>
+                    <h3>Doador: <a th:text="${pet.dono.nome}" th:href = @{/pet/perfil/{id}(id=${pet.dono.id})}></a> </h3>
                 </div>
             </div>
         </section>
         <div class="push"></div>
     </div>
+
     <footer class="footer container-table">
         <div class="table-cell">
             <img th:src="@{/img/instagram.svg}" class="logo">
