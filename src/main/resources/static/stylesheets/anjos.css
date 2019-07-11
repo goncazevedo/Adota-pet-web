@@ -1066,4 +1066,11 @@ td a{
 
 .validation-message{
     width: 180px;
+    margin-bottom: 10px;
+}
+
+.feed .circulo{
+    position: unset;
+    width: 80px;
+    height: 80px;
 }
