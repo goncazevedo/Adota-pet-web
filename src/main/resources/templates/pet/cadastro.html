@@ -28,31 +28,35 @@
                 <form action="/pet/cadastro" method="POST" th:object="${pet}">
                     <div class="esq">
                         <h3>Nome</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('nome')}">
+                            <label th:errors="*{nome}" class="validation-message"></label>
+                        </div>
                         <input type="text" name="Nome" placeholder="Seu nome" th:field="*{nome}">
                         <h3>Raça</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('raca')}">
+                            <label th:errors="*{raca}" class="validation-message"></label>
+                        </div>
                         <input type="text" name="Raca" placeholder="Raça" th:field="*{raca}">
                         <h3>Sexo</h3>
-                        <input type="radio" th:field="*{genero}" value="macho"> Macho
-                        <input type="radio" th:field="*{genero}" value="femea"> Femea
+                        <select>
+                            <option th:field="*{genero}" value="macho">Macho</option>
+                            <option th:field="*{genero}" value="femea">Femea</option>
+                        </select>
                     </div>
                     <div class="dir">
                         <h3>Estado</h3>
                         <select th:field = "*{uf}">
                             <option th:each = "u : ${ufs}" th:value = "${u.sigla}" th:text = "${u.descricao}"></option>
                         </select>
-                        <h3>Data de Nascimento</h3>
+                        <h3>Idade</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('idade')}">
+                            <label th:errors="*{idade}" class="validation-message"></label>
+                        </div>
                         <input type="number" name="Idade" placeholder="" th:field="*{idade}">
                         <h3>Vacinas</h3>
                         <input type="text" th:field="*{vacinas}">
                         <h3>Descrição</h3>
                         <input type="text" th:field="*{descricao}">
-                    </div>
-                    <div class='input-wrapper'>
-                        <label for='input-file'>
-                            Selecionar um arquivo
-                        </label>
-                        <input id='input-file' type='file' value='' />
-                        <span id='file-name'></span>
                     </div>
                     <input type="submit" value="Cadastrar" class="confirma">
                 </form>
@@ -65,7 +69,7 @@
         <div class="table-cell">
             <img th:src="@{/img/instagram.svg}" class="logo">
             <img th:src="@{/img/facebook.svg}" class="logo">
-            <span>Desenvolvido por: </span>
+            <span>Desenvolvido por: JGAGJ, OS FERAS DO TI</span>
         </div>
     </footer>
 </body>

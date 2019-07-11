@@ -22,45 +22,52 @@ public class Usuario {
     private long id;
 
     @Column(name = "us_email", length = 100, nullable = false)
-    @Length(max = 100, min = 3, message = "O email deve conter entre 3 e 100 caracteres")
+    @NotNull(message = "O e-mail é obrigatório.")
+    @Length(min = 5, max = 100, message = "O e-mail deve conter entre 5 e 100 caracteres")
     private String email;
 
     @Column(name = "us_nome", length = 50, nullable = false)
+    @NotNull(message = "A senha é obrigatório.")
     @Length(max = 50, message = "O nome deve conter entre 3 e 50 caracteres")
     private String nome;
 
     @Column(name = "us_genero", length = 20, nullable = false)
-    @Length(max = 20)
+    @NotNull(message = "O gênero é obrigatório.")
     private String genero;
 
     @Column(name = "us_cpf", length = 11, nullable = false)
-    @Length(max = 11, message = "O cpf deve conter 11 caracteres")
+    @NotNull(message = "A senha é obrigatório.")
+    @Length(max = 11, min = 11, message = "O cpf deve conter 11 caracteres")
     private String cpf;
 
     @Column(name = "us_data_nascimento", nullable = false)
+    @NotNull(message = "A data de nascimento é obrigatória.")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
 
-    @Column(name = "us_password", length = 100, nullable = false)
+    @Column(name = "us_password", length = 200, nullable = false)
+    @NotNull(message = "A senha é obrigatória.")
+    @Length(min = 5, message = "A senha deve conter entre 5 e 15 caracteres")
     private String password;
 
-    @Column(name = "us_tipo",length = 10, nullable = false)
+    @Column(name = "us_tipo",length = 10, nullable = true)
     private String tipo;
 
-    @Column(name = "us_linkFacebook", length = 60, nullable = true)
-    @Length(max = 60, message = "O link do facebook deve conter até 60 caracteres")
+    @Column(name = "us_linkFacebook", length = 100, nullable = true)
+    @Length(max = 100, message = "O link do facebook deve conter até 100 caracteres")
     private String linkFacebook;
 
-    @Column(name = "us_linkInstagram", length = 60, nullable = true)
-    @Length(max = 60, message = "O link do instagram deve conter até 60 caracteres")
+    @Column(name = "us_linkInstagram", length = 100, nullable = true)
+    @Length(max = 100, message = "O link do instagram deve conter até 100 caracteres")
     private String linkInstagram;
 
-    @Column(name = "us_numTel", length = 11, nullable = true)
-    @Length(max = 11, message = "O cpf deve conter 11 caracteres")
+    @Column(name = "us_numTel", length = 11, nullable = false)
+    @NotNull(message = "O numTel é obrigatória.")
+    @Length(max = 11, min = 11, message = "O número deve conter 11 caracteres")
     private String numTel;
 
-    @Column(name = "us_linkDoacao", length = 60, nullable = true)
-    @Length(max = 60, message = "O link da doação deve conter até 60 caracteres")
+    @Column(name = "us_linkDoacao", length = 100, nullable = true)
+    @Length(max = 60, message = "O link da doação deve conter até 100 caracteres")
     private String linkDoacao;
 
     @Column(name = "us_descricao", length = 200, nullable = true)

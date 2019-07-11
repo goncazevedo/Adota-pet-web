@@ -39,9 +39,12 @@ public class PetController {
 
     @GetMapping("/pets")
     public ModelAndView list(HttpServletRequest request) {
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = servicoUsuario.encontrarPorEmail(emailUsuario);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("pet/pets");
         mv.addObject("pets", repositoriopet.findAll());
+        mv.addObject("usuarioLogado", usuarioLogado);
         return mv;
     }
 

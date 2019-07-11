@@ -34,7 +34,7 @@
                     <h3>Local:</h3>  <p th:text="${pet.uf}"></p> 
                     <h3>Descrição: </h3>
                     <p th:text="${pet.descricao}"></p>
-                    <h3>Doador: <a th:text="${pet.dono.nome}" th:href = @{/pet/perfil/{id}(id=${pet.dono.id})}></a> </h3>
+                    <h3>Doador: <a th:text="${pet.dono.nome}" th:href = @{/usuario/perfil/{id}(id=${pet.dono.id})}></a></h3>
                 </div>
             </div>
         </section>
@@ -45,7 +45,7 @@
         <div class="table-cell">
             <img th:src="@{/img/instagram.svg}" class="logo">
             <img th:src="@{/img/facebook.svg}" class="logo">
-            <span>Desenvolvido por: </span>
+            <span>Desenvolvido por: JGAGJ, OS FERAS DO TI</span>
         </div>
     </footer>
 </body>

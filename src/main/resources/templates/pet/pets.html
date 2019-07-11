@@ -26,17 +26,17 @@
             <div class="table-cell">
                 <h2>Feed</h2>
                 <div class="animais-adocao" th:each="pet: ${pets}">
-                    <div class="animal-descricao">
+                    <div th:if = "${pet.uf == usuarioLogado.uf}" class="animal-descricao">
                         <div class="animal-nome">
                             <div class="circulo"></div>
-                            <a href="#" th:text="${pet.nome}"></a>
+                            <a th:href = @{/pet/perfil/{id}(id=${pet.id})} th:text="${pet.nome}"></a>
                         </div>
                         <div class="texto">
                             <p th:text="${pet.descricao}"></p>
-                            <p th:text="${pet.idade}"></p>
+                            <!--<p th:text="${pet.idade}"></p>-->
                         </div>
                     </div>
-                    <a th:href = @{/pet/perfil/{id}(id=${pet.id})}>mostrar</a>
+                    <!--<a th:href = @{/pet/perfil/{id}(id=${pet.id})}>mostrar</a>-->
                 </div>
             </div>
         </section>
@@ -46,7 +46,7 @@
         <div class="table-cell">
             <img th:src="@{/img/instagram.svg}" class="logo">
             <img th:src="@{/img/facebook.svg}" class="logo">
-            <span>Desenvolvido por: </span>
+            <span>Desenvolvido por: JGAGJ, OS FERAS DO TI</span>
         </div>
     </footer>
 </body>

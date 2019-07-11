@@ -284,7 +284,7 @@ header nav ul li:nth-child(2)::after{
         padding-left: 10px;
     }
 
-    .login, .cadastro, .profile{
+    .login, .cadastro, .profile, .adm-pet, .feed{
         height: calc(100vh - 125px - 90px) !important;
     }
 
@@ -550,11 +550,11 @@ header nav ul li:nth-child(2)::after{
 
 /* Login */
 
-.login, .cadastro, .profile{
+.login, .cadastro, .profile, .adm-pet, .feed{
     height: calc(100vh - 75px - 90px);
 }
 
-.login h2, .cadastro h2, .profile h2, .feed h2{
+.login h2, .cadastro h2, .profile h2, .feed h2, .adm-pet h2{
     font-family: "Titan";
     color: var(--rosa-primario);
     font-size: 2em;
@@ -590,7 +590,7 @@ header nav ul li:nth-child(2)::after{
     cursor: pointer;
 }
 
-input[type="text"], textarea, input[type="password"], input[type="email"], input[type="url"], input[type="date"], .input-wrapper label{
+input[type="text"], textarea, input[type="password"], input[type="email"], input[type="url"],  input[type="number"], input[type="date"], .input-wrapper label{
     background-color: var(--rosa-escuro);
     border-radius: 5px;
     border: 1px solid var(--cinza-escuro);
@@ -601,7 +601,7 @@ input[type="text"], textarea, input[type="password"], input[type="email"], input
 }
 
 input[type="date"]{
-    width: 162px;
+    width: 176px;
     height: 16px;
 }
 ::placeholder {
@@ -967,4 +967,55 @@ input::-webkit-input-placeholder {
         color: #D49600;
         text-decoration: none;
 
+}
+
+select{
+    width: 187px;
+    background-color: var(--rosa-escuro);
+    border-radius: 5px;
+    border: 1px solid var(--cinza-escuro);
+    padding: 3px;
+    color: var(--branco-primario);
+    padding-left: 5px;
+    margin-bottom: 10px;
+}
+
+
+#descricao, #link-doacao{
+    text-align: center;
+}
+
+#guerreiro{
+    background-image: url(../img/n5.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#araujo{
+    background-image: url(../img/n4.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#joao{
+    background-image: url(../img/n1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#jhonathan{
+    background-image: url(../img/n3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#augusto{
+    background-image: url(../img/n2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

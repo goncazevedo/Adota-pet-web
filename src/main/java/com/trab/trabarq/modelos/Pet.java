@@ -25,6 +25,7 @@ public class Pet {
     private String genero;
     
     @Column(name = "p_idade", nullable = false)
+    @NotNull(message = "A idade é obrigatória")
     private int idade;
 
     @Column(name = "p_raca", length = 50, nullable = false)

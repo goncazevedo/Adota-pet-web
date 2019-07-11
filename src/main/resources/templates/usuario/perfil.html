@@ -13,7 +13,7 @@
 <body>
     <div class="wrapper">
         <header>
-            <img th:src="@{/img/Logo.png}" class="logo">
+            <a href="/"><img th:src="@{/img/Logo.png}" class="logo"></a>
             <nav>
                 <ul>
                     <li><a href="/pet/pets">Adote aqui</a></li>
@@ -46,9 +46,10 @@
                     <h3 th:if = "${usuario.tipo.compareTo('ong') == 0}" >Doação: <a th:href="${usuario.linkDoacao}">Link para doação</a> </h3>
                     <a th:if = "${usuario.id == usuarioLogado.id}" th:href = @{/usuario/editar/{id}(id=${usuario.id})} class="button">Editar</a>
                     <a th:if = "${usuario.id == usuarioLogado.id}" th:href = @{/usuario/excluir/{id}(id=${usuario.id})} class="button">Excluir</a>
-                    <a th:if = "${usuario.id == usuarioLogado.id}" th:href = @{/pet/adm-pet/} class="button">Administrar Pets</a>
+                    <a th:if = "${usuario.id == usuarioLogado.id}" th:href = @{/usuario/adm-pet/} class="button">Administrar Pets</a>
                     
                 </div>
+                
                 <div class="animais-doacao" th:each = "pet : ${usuario.pets}">
                     <div class="animal-doacao">
                         <img th:src="@{/img/image5.png}" class="logo"><br>
