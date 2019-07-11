@@ -61,8 +61,10 @@
                         <input type="number" name="Idade" placeholder="" th:field="*{idade}">
                         <h3>Vacinas</h3>
                         <input type="text" th:field="*{vacinas}">
-                        <h3>Descrição</h3>
-                        <input type="text" th:field="*{descricao}">
+                    </div>
+                    <div id="descricao">
+                    <h3>Descrição</h3>
+                    <textarea type="text" th:field="*{descricao}"></textarea>
                     </div>
                     <input type="submit" value="Cadastrar" class="confirma">
                 </form>
