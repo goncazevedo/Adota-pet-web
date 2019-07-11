@@ -18,7 +18,7 @@
                 <ul>
                     <li><a href="/pet/pets">Adote aqui</a></li>
                     <li><a href="/usuario/meuperfil">Meu Perfil</a></li>
-                    <li><a href="logout">sair</a></li>
+                    <li><a href="/logout">sair</a></li>
                 </ul>
             </nav>
         </header>
@@ -32,13 +32,13 @@
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}">
                             <label th:errors="*{email}" class="validation-message"></label>
                         </div>
-                        <input type="email" name="E-mail" placeholder="seu e-mail"  th:field="*{email}">
+                        <input type="email" name="email" placeholder="seu e-mail"  th:field="*{email}">
                         
                         <h3>Senha</h3>
                         <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}">
                             <label th:errors="*{password}" class="validation-message"></label>
                         </div>
-                        <input type="password" name="Senha" placeholder="sua senha" th:field="*{password}">
+                        <input type="password" name="password" placeholder="sua senha" th:field="*{password}">
                         
                         <h3>Confirmar Senha</h3>
                         <input type="password" name="Confirmar Senha" placeholder="sua senha">
