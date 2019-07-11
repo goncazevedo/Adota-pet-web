@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org/">
+    <head>
+        <meta charset="UTF-8">
+        <title>lista de user</title>
+    </head>
+    <body>
+        <div>
+            <h3>Perfil</h3>
+                <div th:object="${pet}">
+                    <div th:text="${pet.nome}"></div>
+                    <div th:text="${pet.idade}"></div>
+                    <div th:text="${pet.dono.email}"></div>
+                </div>
+        </div>
+    </body>
+</html>

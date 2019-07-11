@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymelead.org/">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +16,15 @@
             <header>
                 <img src="img/Logo.png" class="logo">
                 <nav>
-                    <ul>
-                        <li><a href="#">Adote aqui</a></li>
+                    <ul th:if = "${NULL == usuarioLogado}" >
+                        <li><a href="/pet/pets">Adote aqui</a></li>
                         <li><a href="/usuario/login">Login</a></li>
                         <li><a href="/usuario/registration">Cadastro</a></li>
+                    </ul>
+                    <ul th:if = "${NULL != usuarioLogado}" >
+                        <li><a href="/pet/pets">Adote aqui</a></li>
+                        <li><a href="/usuario/meuperfil">Meu Perfil</a></li>
+                        <li><a href="/logout">sair</a></li>
                     </ul>
                 </nav>
             </header>

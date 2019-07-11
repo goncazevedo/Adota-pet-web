@@ -83,6 +83,7 @@ header .logo{
     width: 150px;
     float: left;
     display: block;
+    cursor: pointer;
 }
 
 
@@ -771,7 +772,7 @@ input[type='file'] {
     cursor: pointer;
 }
 
-.profile .button{
+.button {
     text-decoration: none;
     background-color: var(--rosa-primario);
     border-radius: 15px;
@@ -881,4 +882,89 @@ input::-webkit-input-placeholder {
 
 .texto{
     display: table;
+}
+
+
+.table table{
+
+    width: 96%;
+    margin: 0 auto;
+        margin-top: 15px;
+
+        overflow: hidden;
+        border-collapse: separate; 
+        border-top: solid var(--rosa-escuro) 3px;
+        border-right: solid var(--rosa-escuro) 3px;
+        border-left: solid var(--rosa-escuro) 3px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+}
+
+.table thead{
+    background: var(--rosa-primario);
+    font-family: 'Bitter', serif;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.table th{
+    color: #fcf2f2;
+    font-size: 24px;
+    padding: 10px 0px;
+    background-color: var(--rosa-escuro);
+    border-bottom: 3px solid var(--rosa-escuro);
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+}
+
+
+
+.table tr{
+    border-top: 3px solid var(--rosa-escuro);
+        background: var(--branco-primario);
+
+
+}
+
+.table  tr:first-of-type{
+    border-top: 0px;
+}
+.table td{
+    color: #252525;
+        font-size: 18px;
+        font-family: "ChelseaMarket";
+        padding-top: 15px;
+        padding-right: 30px;
+        padding-bottom: 15px;
+        padding-left: 30px;
+        border-bottom: 3px solid var(--rosa-escuro);
+        text-align: center;
+        max-width: 250px;
+        word-break: break-word;
+        vertical-align: middle;
+
+}
+.table .td-ações{
+    vertical-align: middle;
+        text-align: center;
+        padding-right: 10px;
+        padding-left: 10px;
+        word-break: break-word;
+
+}
+
+.table .td-excluir a{
+    font-family: 'Bitter', serif;
+        color: #EB5757;
+        text-decoration: none;
+
+}
+
+.table .td-editar a{
+    font-family: 'Bitter', serif;
+        color: #D49600;
+        text-decoration: none;
+
 }

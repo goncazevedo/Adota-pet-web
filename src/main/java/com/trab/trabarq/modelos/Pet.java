@@ -44,6 +44,10 @@ public class Pet {
     @JoinColumn(name = "us_id")
     private Usuario dono;
 
+    @Column(name = "p_uf", length = 2, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Uf uf;
+
     public long getId() {
         return id;
     }
@@ -106,5 +110,13 @@ public class Pet {
 
     public void setVacinas(String vacinas) {
         this.vacinas = vacinas;
+    }
+
+    public Uf getUf() {
+        return uf;
+    }
+
+    public void setUf(Uf uf) {
+        this.uf = uf;
     }
 }

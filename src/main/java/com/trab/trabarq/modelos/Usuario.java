@@ -44,7 +44,7 @@ public class Usuario {
     @Column(name = "us_password", length = 100, nullable = false)
     private String password;
 
-    @Column(name = "us_tipo", nullable = false)
+    @Column(name = "us_tipo",length = 10, nullable = false)
     private String tipo;
 
     @Column(name = "us_linkFacebook", length = 60, nullable = true)
@@ -185,6 +185,14 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     

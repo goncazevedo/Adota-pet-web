@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymelead.org/">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylesheets/anjos.css">
+    <link rel="stylesheet" th:href="@{/stylesheets/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/stylesheets/anjos.css}"/>
     <title>Adota Pet</title>
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script src="assets/js/scroll.js"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/scroll.js}"></script>
 </head>
 
 <body>
     <div class="wrapper">
         <header>
-            <img src="assets/img/Logo.png" class="logo">
+            <a href="/"><img th:src="@{/img/Logo.png}" class="logo"></a>
             <nav>
                 <ul>
-                    <li><a href="#">Adote aqui</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="#">Cadastro</a></li>
+                    <li><a href="/pet/pets">Adote aqui</a></li>
+                    <li><a href="/usuario/meuperfil">Meu Perfil</a></li>
+                    <li><a href="/logout">sair</a></li>
                 </ul>
             </nav>
         </header>
         <section class="profile container-table">
-            <div class="table-cell">
-                <h2>Lola</h2>
+            <div class="table-cell" th:object="${pet}">
+                <h2 th:text="${pet.nome}"></h2>
                 <div class="circulo"></div>
                 <div class="info-profile">
-                    <h3>Idade: <span>15</span> </h3>
-                    <h3>Raça: <span>Viralata</span> </h3>
-                    <h3>Sexo: <span>Fêmea</span> </h3>
-                    <h3>Gênero: <span>Masculino</span></h3>
-                    <h3>Vacinas:  </h3> <p>23 213 321</p>
-                    <h3>Local:</h3>  <p>São Gonçalo - RJ</p> 
+                    <h3>Idade: <span th:text="${pet.idade}"></span> </h3>
+                    <h3>Raça: <span th:text="${pet.raca}">Viralata</span> </h3>
+                    <h3>Sexo: <span th:text="${pet.genero}"></span> </h3>
+                    <h3>Vacinas: </h3> <p th:text="${pet.vacinas}"></p>
+                    <h3>Local:</h3>  <p th:text="${pet.uf}"></p> 
                     <h3>Descrição: </h3>
-                    <p>Marzipan jelly marshmallow tart soufflé powder tootsie roll chupa chups pastry. Cotton candy
-                        macaroon fruitcake fruitcake macaroon jelly gummi bears. Lollipop lemon drops croissant lemon
-                        drops liquorice chocolate bar chocolate cake. Wafer icing tiramisu</p>
-                    <h3>Doador: <a href="#">Fulano</a> </h3>
+                    <p th:text="${pet.descricao}"></p>
+                    <h3>Doador: <a th:text="${pet.dono.nome}" th:href = @{/pet/perfil/{id}(id=${pet.dono.id})}></a> </h3>
                 </div>
             </div>
         </section>
@@ -46,8 +43,8 @@
 
     <footer class="footer container-table">
         <div class="table-cell">
-            <img src="assets/img/instagram.svg" class="logo">
-            <img src="assets/img/facebook.svg" class="logo">
+            <img th:src="@{/img/instagram.svg}" class="logo">
+            <img th:src="@{/img/facebook.svg}" class="logo">
             <span>Desenvolvido por: </span>
         </div>
     </footer>

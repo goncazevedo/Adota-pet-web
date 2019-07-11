@@ -36,14 +36,6 @@ public class UsuarioController {
 
     @Autowired
     private ServicoUsuario ex;
-
-    @GetMapping("/usuarios")
-    public ModelAndView list() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("usuario/usuarios");
-        mv.addObject("usuarios", repositorioUsuario.findAll());
-        return mv;
-    }
 /* 
     @GetMapping("/cadastro")
     public ModelAndView insere() {
@@ -67,6 +59,17 @@ public class UsuarioController {
         return mv;
     } */
 
+
+    @GetMapping("/adm-pet")
+    public ModelAndView adm(HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("usuario/adm-pet");
+        String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
+        Usuario usuarioLogado = ex.encontrarPorEmail(emailUsuario);
+        mv.addObject("usuario", usuarioLogado);
+        mv.addObject("usuarioLogado", usuarioLogado);
+        return mv;
+    }
 
     @GetMapping("/meuperfil")
     public ModelAndView show(HttpServletRequest request) {
@@ -109,12 +112,13 @@ public class UsuarioController {
             mv.setViewName("usuario/editar");
             mv.addObject(usuario);
         }else{
-            mv.setViewName("redirect:/usuario/usuarios");
+            mv.setViewName("redirect:/usuario/meuperfil");
             repositorioUsuario.save(usuario);
         }
         return mv;
     }
 
+    
     @GetMapping("/excluir/{id}")
     public String excluir(@PathVariable("id") Long id, HttpServletRequest request) {
         String emailUsuario = request.getUserPrincipal().getName(); //pega o username do usuario
@@ -125,7 +129,7 @@ public class UsuarioController {
 
     @GetMapping("/login")
     public String login() {
-        return "usuario/login";
+        return "/usuario/login";
     }
 
     @GetMapping("/registration")

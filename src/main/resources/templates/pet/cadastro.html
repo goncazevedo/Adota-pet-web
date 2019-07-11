@@ -1,52 +1,73 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymelead.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Adota Pet - Cadastro de usuários</title>
-    </head>
-    <body>
-        <div>
-            <h3>Cadastro de Usuário</h3>
-            <form action="/pet/cadastro" method="POST" th:object="${pet}">
-                <div>
-                    <div>
-                        <label>Nome</label>
-                        <input type="text"  th:field="*{nome}">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/stylesheets/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/stylesheets/anjos.css}"/>
+    <title>Adota Pet</title>
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/scroll.js}"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="/"><img th:src="@{/img/Logo.png}" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="/pet/pets">Adote aqui</a></li>
+                    <li><a href="/usuario/meuperfil">Meu Perfil</a></li>
+                    <li><a href="/logout">sair</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="cadastro container-table">
+            <div class="table-cell">
+                <h2>Cadastro</h2>
+                <form action="/pet/cadastro" method="POST" th:object="${pet}">
+                    <div class="esq">
+                        <h3>Nome</h3>
+                        <input type="text" name="Nome" placeholder="Seu nome" th:field="*{nome}">
+                        <h3>Raça</h3>
+                        <input type="text" name="Raca" placeholder="Raça" th:field="*{raca}">
+                        <h3>Sexo</h3>
+                        <input type="radio" th:field="*{genero}" value="macho"> Macho
+                        <input type="radio" th:field="*{genero}" value="femea"> Femea
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Idade</label>
-                        <input type="number"  th:field="*{idade}">
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <label>genero</label>
-                        <input type="radio" th:field="*{genero}" value="male"> Masculino
-                        <input type="radio" th:field="*{genero}" value="female"> Feminino
-                    </div>
-                </div> 
-                <div>
-                    <div>
-                        <label>Raça</label>
-                        <input type="text" th:field="*{raca}">
-                    </div>
-                </div>                
-                <div>
-                    <div>
-                        <label>Descrição</label>
+                    <div class="dir">
+                        <h3>Estado</h3>
+                        <select th:field = "*{uf}">
+                            <option th:each = "u : ${ufs}" th:value = "${u.sigla}" th:text = "${u.descricao}"></option>
+                        </select>
+                        <h3>Data de Nascimento</h3>
+                        <input type="number" name="Idade" placeholder="" th:field="*{idade}">
+                        <h3>Vacinas</h3>
+                        <input type="text" th:field="*{vacinas}">
+                        <h3>Descrição</h3>
                         <input type="text" th:field="*{descricao}">
                     </div>
-                </div>
-                <div>
-                    <div>
-                        <label>Vacinas</label>
-                        <input type="text" th:field="*{vacinas}">
+                    <div class='input-wrapper'>
+                        <label for='input-file'>
+                            Selecionar um arquivo
+                        </label>
+                        <input id='input-file' type='file' value='' />
+                        <span id='file-name'></span>
                     </div>
-                </div>
-                <button type="submit">Salvar Alterações</button>
-            </form>
+                    <input type="submit" value="Cadastrar" class="confirma">
+                </form>
+
+            </div>
+        </section>
+        <div class="push"></div>
+    </div>
+    <footer class="footer container-table">
+        <div class="table-cell">
+            <img th:src="@{/img/instagram.svg}" class="logo">
+            <img th:src="@{/img/facebook.svg}" class="logo">
+            <span>Desenvolvido por: </span>
         </div>
-    </body>
+    </footer>
+</body>
+
 </html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org/">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/stylesheets/reset.css}"/>
+    <link rel="stylesheet" th:href="@{/stylesheets/anjos.css}"/>
+    <title>Adota Pet</title>
+    <script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/scroll.js}"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="/"><img th:src="@{/img/Logo.png}" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="#">Adote aqui</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="#">Cadastro</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="adm-pet container-table">
+            <div class="table-cell table">
+                <h2>Lista de Pets</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th colspan="2">Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Lola</td>
+                            <td class="td-ações td-editar">
+                                <a>Editar</a>
+                            </td>
+                            <td class="td-ações td-excluir">
+                                <a>Excluir</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a class="button">Voltar</a>
+                <a class="button">Adicionar Pet</a>
+            </div>
+        </section>
+
+        <div class="push"></div>
+    </div>
+    <footer class="footer container-table">
+        <div class="table-cell">
+            <img th:src="@{/img/instagram.svg}" class="logo">
+            <img th:src="@{/img/facebook.svg}" class="logo">
+            <span>Desenvolvido por: </span>
+        </div>
+    </footer>
+</body>
+
+</html>
