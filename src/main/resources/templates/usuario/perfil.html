@@ -27,8 +27,8 @@
                 <h2>Perfil</h2>
                 <div class="circulo"></div>
                 <div class="rede-social">
-                    <img th:src="@{/img/instagram-pink.svg}" class="logo">
-                    <img th:src="@{/img/facebook-pink.svg}" class="logo">
+                    <a th:href="${usuario.linkInstagram}" ><img th:src="@{/img/instagram-pink.svg}" class="logo"></a>
+                    <a th:href="${usuario.linkFacebook}" ><img th:src="@{/img/facebook-pink.svg}" class="logo"></a>
                 </div>
                 <div class="info-profile">
                     <h3>Nome Completo: <span th:text="${usuario.nome}"></span> </h3>
@@ -38,8 +38,6 @@
                     <h3>Telefone: <span th:text="${usuario.numTel}"></span> </h3>
                     <h3>CPF: <span th:text="${usuario.cpf}"></span> </h3>
                     <h3>Local: <span th:text="${usuario.uf.descricao}"></span> </h3>
-                    <h3>Link do Instagram: <span th:text="${usuario.linkInstagram}"></span> </h3>
-                    <h3>Link do Facebook: <span th:text="${usuario.linkFacebook}"></span> </h3>
                     <h3 th:if = "${usuario.tipo == 'ong'}">Link da Doação: <span th:text="${usuario.cpf}"></span> </h3>                    
                     <h3>Descrição: </h3>
                     <p th:text="${usuario.descricao}"></p>
@@ -50,13 +48,14 @@
                     
                 </div>
                 
-                <div class="animais-doacao" th:each = "pet : ${usuario.pets}">
-                    <div class="animal-doacao">
+                <div class="animais-doacao" >
+                    <div class="animal-doacao" th:each = "pet : ${usuario.pets}">
                         <img th:src="@{/img/image5.png}" class="logo"><br>
                         <a th:text = "${pet.nome}" th:href = @{/pet/perfil/{id}(id=${pet.id})}></a>
                         </p>
                     </div>
                 </div>
+                
             </div>
         </section>
         <div class="push"></div>

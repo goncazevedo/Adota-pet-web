@@ -19,7 +19,7 @@ public class Pet {
     @Length(max = 50, min = 3, message = "O nome deve conter entre 3 e 50 caracteres")
     private String nome;
     
-    @Column(name = "p_genero", length = 20, nullable = false)
+    @Column(name = "p_genero", length = 20)
     @NotNull(message = "O gênero é obrigatório")
     @Length(max = 20, min = 3)
     private String genero;

@@ -38,13 +38,19 @@
                         </div>
                         <input type="text" name="Raca" placeholder="Raça" th:field="*{raca}">
                         <h3>Sexo</h3>
-                        <select>
-                            <option th:field="*{genero}" value="macho">Macho</option>
-                            <option th:field="*{genero}" value="femea">Femea</option>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('genero')}">
+                            <label th:errors="*{genero}" class="validation-message"></label>
+                        </div>
+                        <select th:field="*{genero}">
+                            <option value="macho">Macho</option>
+                            <option value="femea">Femea</option>
                         </select>
                     </div>
                     <div class="dir">
                         <h3>Estado</h3>
+                        <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('uf')}">
+                            <label th:errors="*{uf}" class="validation-message"></label>
+                        </div>
                         <select th:field = "*{uf}">
                             <option th:each = "u : ${ufs}" th:value = "${u.sigla}" th:text = "${u.descricao}"></option>
                         </select>
